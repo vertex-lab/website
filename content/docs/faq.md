@@ -30,9 +30,9 @@ Yes, we currently offer Global Pagerank and Personalized Pagerank, but more algo
 
 [Personalized PageRank](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8895775), on the other hand, tailors the results to an individual, adjusting rankings based on their unique connections and interactions within the graph.
 
-### What do you mean by "global" if there is no global state in nostr?
+### What do you mean by "global"?
 
-Our crawler attempts to retrieve profile data from as many relays as possible (there may be places we obviously cannot reach). Since we only store updated profile data, we can easily scale. In addition, we have systems in place to prevent spammers from attacking us with tons of low quality profiles.
+On nostr there is no global state. However, our crawler gathers profile data from multiple relays to provide the most comprehensive view of the network. To maintain data quality and prevent spam attacks, we implement systems that filter out low-quality profiles and mitigate abuse.
 
 ### How can I integrate Vertex into my app?
 
