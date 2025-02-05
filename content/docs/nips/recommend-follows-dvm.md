@@ -21,26 +21,19 @@ Example use-cases:
 | Parameter | Type | Description | Default Value |
 |-----|-----|-----|-----|
 | `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request |
-| `context` | string | Additional context for the algorithm to compute | - |
-| `distance` | int | Maximum (or minimum) number of hops in the graph to perform the calculation to (or from)  | `0` |
-| `sort` | string | Algorithm used to sort results | Implementation-specific |
-| `limit` | int | Maximum number of results returned in a response | Implementation-specific |
+| `sort` | string | Algorithm used to sort results | globalPagerank |
+| `limit` | int | Maximum number of results returned in a response | 5 |
 
-Pubkeys SHOULD be in hex format. Implementations MAY support automatic npub decoding.
-
-The DVM `i` input tag SHOULD NOT be used and `content` SHOULD be empty.
-
-Parameters `limit` and `sort` SHOULD NOT be required and are implementation-specific.
+Pubkeys can be in either hex format or npubs.
 
 #### Sorting algorithms
 
-Algorithms are used for sorting results and MAY be passed in the request. Each service will offer different ones, here is a non-exhaustive list:
+We currently support the following algorithms:
 
  - `globalPagerank`: Global Pagerank
  - `personalizedPagerank`: Personalized Pagerank
- - `graperank`: Graperank
- - `verifiedFollowers`: Followers with a minimum rank (uses `personalizedPagerank` if source is provided or otherwise `globalPagerank`)
- - `distance`: Number of hops in the graph between source and target
+
+If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/docs/faq/#what-is-the-difference-between-global-and-personalized-pagerank)
 
 #### Example request
 
@@ -60,17 +53,14 @@ This example uses no parameters, gets recommended follows for the signer.
 
 ### Response
 
-The response MUST be a standard DVM response including the corresponding `e` and `p` tags. 
-
-Its `content` field MUST return a JSON-stringified array of objects formatted as:
+The response is a standard DVM response which includes the corresponding `e` and `p` tags. 
+The `content` field is a JSON-stringified array of objects formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`recommended`, `rank`} | {string, float} | Recommendation along with its rank |
+| {`pubkey`, `rank`} | {string, float} | Recommended hex nostr Pubkey, along with its rank |
 
-Pubkeys SHOULD be in hex format.
-
-Services MAY return objects in descending rank order for client convenience.
+Pubkeys are sorted in decreasing order by their ranks.
 
 #### Example response
 
@@ -90,7 +80,7 @@ Services MAY return objects in descending rank order for client convenience.
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-"content": "[{\"recommended\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"recommended\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"recommended\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"recommended\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111},{\"recommended\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.000107}]",
+"content": "[{\"pubkey\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"pubkey\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"pubkey\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"pubkey\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111},{\"pubkey\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.000107}]",
   "sig": "c79f34b9f5603b242e00f0b04782d579ffcec2cb45e511fbbf1ba3e04d5297f7eb7a071433b0a14300fbd766feaf5e8e1f6fbd216ae1cce1cb400f987fc2d0d2"
 }
 ```
@@ -100,23 +90,23 @@ Formatted `content` JSON:
 ```json
 [
 	{
-		"recommended": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
+		"pubkey": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
 		"rank": 0.0025
 	},
 	{
-		"recommended": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
+		"pubkey": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
 		"rank": 0.00163
 	},
 	{
-		"recommended": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
+		"pubkey": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
 		"rank": 0.00154
 	},
 	{
-		"recommended": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
+		"pubkey": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
 		"rank": 0.00111
 	},
 	{
-		"recommended": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
+		"pubkey": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
 		"rank": 0.000107
 	}
 ]
