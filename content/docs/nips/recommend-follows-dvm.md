@@ -3,6 +3,8 @@ title: Recommend Follows DVM
 weight: 20
 ---
 
+([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
+
 This service returns a list of recommended pubkeys (the ones with highest rank excluding source and its follows) sorted by an algorithm.
 
 Example use-cases:

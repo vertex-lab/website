@@ -3,9 +3,11 @@ title: Verify Reputation DVM
 weight: 10
 ---
 
+([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
+
 This service returns reputation information about a pubkey, including a list of pubkeys who follow it sorted by an algorithm.
 
-**Example use-cases:**
+Example use-cases:
   - Assessing trust for a new profile a user comes across, for example by showing which of their followers follow that new profile
   - Obtaining verified followers of a new profile
   - Detecting the probability that new profile is an impersonator

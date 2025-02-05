@@ -3,6 +3,8 @@ title: Sort Authors DVM
 weight: 30
 ---
 
+([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
+
 This service sorts a provided list of pubkeys by an algorithm.
 
 Example use-cases:
