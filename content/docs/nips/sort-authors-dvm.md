@@ -5,7 +5,7 @@ weight: 30
 
 ([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
 
-This service sorts a provided list of pubkeys by an algorithm.
+This service sorts a provided list of pubkeys using the specified algorithm.
 
 Example use-cases:
 
@@ -24,19 +24,22 @@ Example use-cases:
 | Parameter | Type | Description | Default Value |
 |-----|-----|-----|-----|
 | `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `target` | string | Author pubkeys to sort | - |
-| `context` | string | Additional context for the algorithm to compute | - |
-| `distance` | int | Maximum (or minimum) number of hops in the graph to perform the calculation to (or from) | `0` |
-| `sort` | string | Algorithm used to sort results | Implementation-specific |
-| `limit` | int | Maximum number of results returned in a response | Implementation-specific |
+| `target` _(required)_ | string | Author pubkey to sort | - |
+| `sort` | string | Algorithm used to sort results | globalPagerank |
+| `limit` | int | Maximum number of results returned in a response | 5 |
 
-Pubkeys SHOULD be in hex format. Implementations MAY support automatic npub decoding.
+Pubkeys can be in either hex format or npubs.
+Only one `source` can be supplied.
+Multiple `target` parameters SHOULD be supplied.
 
-The DVM `i` input tag SHOULD NOT be used and `content` SHOULD be empty.
+#### Sorting algorithms
 
-Multiple `source` parameters MAY be supplied. Multiple `target` parameters SHOULD be supplied.
+We currently support the following algorithms:
 
-Parameters `limit` and `sort` SHOULD NOT be required and are implementation-specific.
+ - `globalPagerank`: Global Pagerank
+ - `personalizedPagerank`: Personalized Pagerank
+
+If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/docs/faq/#what-is-the-difference-between-global-and-personalized-pagerank)
 
 #### Example request
 
@@ -75,17 +78,14 @@ Parameters `limit` and `sort` SHOULD NOT be required and are implementation-spec
 
 ### Response
 
-The response MUST be a standard DVM response including the corresponding `e` and `p` tags. 
-
-Its `content` field MUST return a JSON-stringified array of objects formatted as:
+The response is a standard DVM response which includes the corresponding `e` and `p` tags. 
+The `content` field is a JSON-stringified array of objects formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`author`, `rank`} | {string, float} | Requested target along with its rank |
+| {`pubkey`, `rank`} | {string, float} | Requested target along with its rank |
 
-Pubkeys SHOULD be in hex format.
-
-Services MAY return objects in descending rank order for client convenience.
+Pubkeys are sorted in decreasing order by their ranks.
 
 #### Example response
 
@@ -105,7 +105,7 @@ Services MAY return objects in descending rank order for client convenience.
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-  "content": "[{\"author\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"author\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"author\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"author\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111},{\"author\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.000107}]",
+  "content": "[{\"pubkey\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"pubkey\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"pubkey\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"pubkey\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111},{\"pubkey\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.000107}]",
   "sig": "6fd60b9c07eac7b9150c25c4d5bb2652998b671b3b336c1407cac0473f90a25bfae5636a4eb27bcf40d2ba6f0b5f25e3300d3fdbae295dc9f2fc5cf74b793c11"
 }
 ```
@@ -115,23 +115,23 @@ Formatted `content` JSON:
 ```json
 [
 	{
-		"author": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
+		"pubkey": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
 		"rank": 0.0025
 	},
 	{
-		"author": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
+		"pubkey": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
 		"rank": 0.00163
 	},
 	{
-		"author": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
+		"pubkey": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
 		"rank": 0.00154
 	},
 	{
-		"author": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
+		"pubkey": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
 		"rank": 0.00111
 	},
 	{
-		"author": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
+		"pubkey": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
 		"rank": 0.000107
 	}
 ]
