@@ -21,10 +21,10 @@ Example use-cases:
 | Parameter | Type | Description | Default Value |
 |-----|-----|-----|-----|
 | `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request |
-| `sort` | string | Algorithm used to sort results | globalPagerank |
-| `limit` | int | Maximum number of results returned in a response | 5 |
+| `sort` | string | Algorithm used to sort results | `globalPagerank` |
+| `limit` | int | Maximum number of results returned in a response | `5` |
 
-Pubkeys can be in either hex format or npubs.
+Pubkeys can be in either hex or npub format.
 
 #### Sorting algorithms
 
@@ -58,7 +58,7 @@ The `content` field is a JSON-stringified array of objects formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`pubkey`, `rank`} | {string, float} | Recommended hex nostr Pubkey, along with its rank |
+| {`pubkey`, `rank`} | {string, float} | Recommended hex nostr pubkey, along with its rank |
 
 Pubkeys are sorted in decreasing order by their ranks.
 

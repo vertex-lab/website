@@ -8,7 +8,8 @@ weight: 10
 This service returns reputation information about a pubkey, including a list of pubkeys who follow it sorted by an algorithm.
 
 Example use-cases:
-  - Helping users assessing the reputation of a npub
+
+  - Helping users assess the reputation of a npub
   - Showing relevant followers of that npub
   - Reducing the probability of successful impersonators
 
@@ -23,11 +24,11 @@ Example use-cases:
 | Parameter | Type | Description | Default Value |
 |-----|-----|-----|-----|
 | `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `target` _(required)_ | string | Pubkey the requester is interested in | - |
-| `sort`| string | Algorithm used to sort results | globalPagerank |
-| `limit` | int | Maximum number of results returned in a response | 5 |
+| `target` | string (required) | Pubkey the requester is interested in | - |
+| `sort`| string | Algorithm used to sort results | `globalPagerank` |
+| `limit` | int | Maximum number of results returned in a response | `5` |
 
-Pubkeys can be in either hex format or npubs.
+Pubkeys can be in either hex or npub format.
 
 #### Sorting algorithms
 

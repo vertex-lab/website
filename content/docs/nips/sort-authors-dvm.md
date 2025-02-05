@@ -25,10 +25,10 @@ Example use-cases:
 |-----|-----|-----|-----|
 | `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
 | `target` _(required)_ | string | Author pubkey to sort | - |
-| `sort` | string | Algorithm used to sort results | globalPagerank |
-| `limit` | int | Maximum number of results returned in a response | 5 |
+| `sort` | string | Algorithm used to sort results | `globalPagerank` |
+| `limit` | int | Maximum number of results returned in a response | `5` |
 
-Pubkeys can be in either hex format or npubs.
+Pubkeys can be in either hex or npub format.
 Only one `source` can be supplied.
 Multiple `target` parameters SHOULD be supplied.
 
