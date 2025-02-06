@@ -33,6 +33,12 @@ We currently support three DVMs, but we plan to increase our offering substantia
 2. [`RecommendFollows`](/docs/nips/recommend-follows-dvm/): give your users personalized recommendations about interesting npubs they might want who to follow.
 3. [`SortAuthors`](/docs/nips/sort-authors-dvm/): give your users the ability to sort replies, comments, zaps, search results or just about anything using authors' reputations.
 
-To learn more, watch this 3-minute walk-through video.
+To learn more, watch this 4 minute walk-through video.
+
+<video width="100%" controls>
+    <source src="https://cdn.satellite.earth/6efabff7da55ce848074351b2d640ca3bde4515060d9aba002461a4a4ddad8d8.mp4" type="video/mp4">
+    <source src="https://cdn.satellite.earth/792705217ecb755435b708cc23615259f8d7923974e14ed9a586d3fa2c16c804.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 
 We are also considering offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or projects. Please reach out if you are interested.

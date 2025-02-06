@@ -15,6 +15,14 @@
 
 <div class="hx-mt-12"></div>
 
+<video width="100%" controls>
+    <source src="https://cdn.satellite.earth/6efabff7da55ce848074351b2d640ca3bde4515060d9aba002461a4a4ddad8d8.mp4" type="video/mp4">
+    <source src="https://cdn.satellite.earth/792705217ecb755435b708cc23615259f8d7923974e14ed9a586d3fa2c16c804.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+
+<div class="hx-mt-12"></div>
+
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="No fuss WoT"
