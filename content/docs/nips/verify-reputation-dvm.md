@@ -93,7 +93,7 @@ The subsequent pairs are the `pubkeys` and `ranks` of the top followers of `targ
 nak req -k 6312 -k 7000 --tag e=9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506 wss://relay.vertexlab.io
 ```
 
-#### Example response
+#### Example response event
 
 ```json
 {
