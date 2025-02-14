@@ -24,7 +24,7 @@ Example use-cases:
 | Parameter | Type | Description | Default Value |
 |-----|-----|-----|-----|
 | `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `target` | string (required) | Pubkey the requester is interested in | - |
+| `target` | string _(required)_ | Pubkey the requester is interested in | - |
 | `sort`| string | Algorithm used to sort results | `globalPagerank` |
 | `limit` | int | Maximum number of results returned in a response | `5` |
 
@@ -39,24 +39,26 @@ We currently support the following algorithms:
 
 If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/docs/faq/#what-is-the-difference-between-global-and-personalized-pagerank)
 
-#### Example request
+### Request
+
+#### Example nak command
+```
+nak event -k 5312 --tag param="source;04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9" --tag param="sort;personalizedPagerank" --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" wss://relay.vertexlab.io
+```
+
+#### Example request event
 
 ```json
 {
-  "id": "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49",
+  "id": "9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506",
   "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
-  "created_at": 1732758297,
+  "created_at": 1739555306,
   "kind": 5312,
   "tags": [
     [
       "param",
       "source",
-      "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
-    ],
-    [
-      "param",
-      "target",
-      "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a"
+      "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9"
     ],
     [
       "param",
@@ -65,12 +67,12 @@ If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/d
     ],
     [
       "param",
-      "limit",
-      7
+      "target",
+      "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11"
     ],
   ],
   "content": "",
-  "sig": "22f8aa10a0a3e9ef44f2b6a050868f46f19fcc1bbd9da3c3b291164405fb854a4b83524770d82d008a7415636554defcfb5ea52bf42e8a681a69ef10a81bc8e2"
+  "sig": "3ed4e46c34c72aa3af32c937dc2ff764e08b137b7287ed012320e31c9c83e85c4a093a91ef7c428957bba8051d7528e04482f5200218a10692cef8ca63830686"
 }
 ```
 
@@ -86,27 +88,31 @@ The `content` field is a JSON-stringified array of objects formatted as:
 The first pair is always the `pubkey` and `rank` of the `target` 
 The subsequent pairs are the `pubkeys` and `ranks` of the top followers of `target` (decreasing order), determined by the algorithm specified in the `sort` parameter.
 
+#### Example nak command
+```
+nak req -k 6312 -k 7000 --tag e=9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506 wss://relay.vertexlab.io
+```
+
 #### Example response
 
 ```json
 {
-  "id": "26594511e04ee1b20b94719616a2380b3dcaf0430e2fd6d4dcf59d24f9175fca",
-  "pubkey": "a9b008476119ea693cbd2f0b4de99fd346e2e30880b18d42234a1158bd323783",
-  "created_at": 1732758298,
+  "id": "961f2d72bc9d03615d5cae063a809320246683ae0f85c0cf3f66a4362e589f36",
+  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
+  "created_at": 1739555307,
   "kind": 6312,
   "tags": [
     [
       "e",
-      "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49"
+      "9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506"
     ],
     [
       "p",
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-  "content": "[{\"pubkey\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.00066},
-  {\"pubkey\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"pubkey\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"pubkey\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"pubkey\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111}]",
-  "sig": "3c25ff7f8d6d847775a9aafb8b1f28d2f2e9b53f78de7f53b49fbbe46402358dc281be263c20919a426cbea86fbe9d36951fd5dd86465181d9d49be056616f53"
+  "content":"[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.00039477825732073653},{\"pubkey\":\"04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9\",\"rank\":0.2424952119801195},{\"pubkey\":\"32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245\",\"rank\":0.0027687826425603387},{\"pubkey\":\"6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93\",\"rank\":0.002333993075376003},{\"pubkey\":\"472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e\",\"rank\":0.002272642400251833},{\"pubkey\":\"3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d\",\"rank\":0.002149941050003493}]"
+  "sig": "4d4a48d4e4151bdc8574b2601b3b8451ef8c941dc5e5e00a5d803e320df6eed95e10a34292c44d49a66e1cc6f0f348f00f240bdb9f28853f438118d287c58ffa"
 }
 ```
 
@@ -115,24 +121,28 @@ Formatted `content` JSON:
 ```json
 [
   	{
-		"pubkey": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
-		"rank": 0.00066
+		"pubkey": "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
+		"rank": 0.00039477825732073653
 	},
 	{
-		"pubkey": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
-		"rank": 0.00250
+		"pubkey": "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9",
+		"rank": 0.2424952119801195
 	},
 	{
-		"pubkey": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
-		"rank": 0.00163
+		"pubkey": "32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245",
+		"rank": 0.0027687826425603387
 	},
 	{
-		"pubkey": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
-		"rank": 0.00154
+		"pubkey": "6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93",
+		"rank": 0.002333993075376003
 	},
 	{
-		"pubkey": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
-		"rank": 0.00111
+		"pubkey": "472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e",
+		"rank": 0.002272642400251833
+	},
+	{
+		"pubkey": "3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d",
+		"rank": 0.002149941050003493
 	},
 ]
 ```
