@@ -24,7 +24,7 @@ Example use-cases:
 | Parameter | Type | Description | Default Value |
 |-----|-----|-----|-----|
 | `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `target` _(required)_ | string | Author pubkey to sort | - |
+| `target` | string _(required)_  | Author pubkey to sort | - |
 | `sort` | string | Algorithm used to sort results | `globalPagerank` |
 | `limit` | int | Maximum number of results returned in a response | `5` |
 
@@ -41,38 +41,39 @@ We currently support the following algorithms:
 
 If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/docs/faq/#what-is-the-difference-between-global-and-personalized-pagerank)
 
-#### Example request
+### Request
 
+#### Example nak command
+```
+nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" --tag param="target;f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2" --tag param="target;d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387" wss://relay.vertexlab.io
+```
+
+#### Example request event
 ```json
 {
-  "id": "588d828025eab6404ed17c6c7a70d09a67c5da4ffe780e2f943f32509fe8af23",
+  "id": "f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa70f5a642f074e525c",
   "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
-  "created_at": 1732760317,
+  "created_at": 1739562990,
   "kind": 5314,
   "tags": [
     [
       "param",
       "target",
-      "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
+      "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
     ],
     [
       "param",
       "target",
-      "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
+      "f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2",
     ],
     [
       "param",
       "target",
-      "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
+      "d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387",
     ],
-    [
-      "param",
-      "sort",
-      "personalizedPagerank"
-    ]
   ],
   "content": "",
-  "sig": "be8b89b9db5f3579efe55417fbb76f626242936b3745aa0aaa67ed5a7e0107c7caa9a96bd1e78521528b642f240d972dcec88d6655992a80980a9acfd0c9ce72"
+  "sig": "996e243478504aaec423ddbd17d77ee343dae85b65062edeea1d58306185aa9994d221b08512953a55ea3f1783c4c86d108929371296897e44bebd7d53718f9a"
 }
 ```
 
@@ -87,26 +88,31 @@ The `content` field is a JSON-stringified array of objects formatted as:
 
 Pubkeys are sorted in decreasing order by their ranks.
 
-#### Example response
+#### Example nak command
+```
+nak req -k 6314 -k 7000 --tag e=f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa70f5a642f074e525c wss://relay.vertexlab.io
+```
+
+#### Example response event
 
 ```json
 {
-  "id": "cc6a095e8e87977971806acea0670d92af3632da6242699c4a004ebad11b1347",
-  "pubkey": "a9b008476119ea693cbd2f0b4de99fd346e2e30880b18d42234a1158bd323783",
-  "created_at": 1732760389,
+  "id": "421d49864f791ba7a39d0ede71ad419571d6bae194d8fddf04e9e4a7b8b4bac3",
+  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
+  "created_at": 1739562990,
   "kind": 6314,
   "tags": [
     [
       "e",
-      "588d828025eab6404ed17c6c7a70d09a67c5da4ffe780e2f943f32509fe8af23"
+      "f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa70f5a642f074e525c"
     ],
     [
       "p",
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-  "content": "[{\"pubkey\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"pubkey\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"pubkey\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"pubkey\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111},{\"pubkey\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.000107}]",
-  "sig": "6fd60b9c07eac7b9150c25c4d5bb2652998b671b3b336c1407cac0473f90a25bfae5636a4eb27bcf40d2ba6f0b5f25e3300d3fdbae295dc9f2fc5cf74b793c11"
+  "content": "[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.0001607724330728076},{\"pubkey\":\"f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2\",\"rank\":0.00007583312883188345},{\"pubkey\":\"d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387\",\"rank\":0}]",
+  "sig": "3bbf45f522e638fe5a2723d97f8db79ae4438407c2b2e8e98bddceb959bc700c9e343fde22e5fc873295c8b9bdb163512daa75ef77b78fea875c2a4ceef4a557"
 }
 ```
 
@@ -115,24 +121,16 @@ Formatted `content` JSON:
 ```json
 [
 	{
-		"pubkey": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
-		"rank": 0.0025
+		"pubkey": "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
+		"rank": 0.0001607724330728076
 	},
 	{
-		"pubkey": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
-		"rank": 0.00163
+		"pubkey": "f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2",
+		"rank": 0.00007583312883188345
 	},
 	{
-		"pubkey": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
-		"rank": 0.00154
+		"pubkey": "d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387",
+		"rank": 0
 	},
-	{
-		"pubkey": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
-		"rank": 0.00111
-	},
-	{
-		"pubkey": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
-		"rank": 0.000107
-	}
 ]
 ```
