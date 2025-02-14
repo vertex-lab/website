@@ -35,19 +35,35 @@ We currently support the following algorithms:
 
 If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/docs/faq/#what-is-the-difference-between-global-and-personalized-pagerank)
 
-#### Example request
+### Request
 
-This example uses no parameters, gets recommended follows for the signer.
+#### Example nak command
+```
+nak event -k 5313 --tag param="source;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" --tag param="sort;personalizedPagerank" wss://relay.vertexlab.io
+```
+
+#### Example request event
 
 ```json
 {
-  "id": "588d828025eab6404ed17c6c7a70d09a67c5da4ffe780e2f943f32509fe8af23",
+  "id": "a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4",
   "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
-  "created_at": 1732759754,
+  "created_at": 1739563709,
   "kind": 5313,
-  "tags": [],
+  "tags": [
+    [
+      "param",
+      "source",
+      "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11"
+    ],
+    [
+      "param",
+      "sort",
+      "personalizedPagerank"
+    ],
+  ],
   "content": "",
-  "sig": "e0174ad1416e0d722f06491909fe8e4781fd732c21df6424cf0f1dc422db53ba525d544a29927297f63543796750ed7abf5e3c10c0e40e72b8c916b9a751c078"
+  "sig": "217e633bd86280efb543891560b207703f999bc47a76955438e99aea929d87cd88de3346cfe109da4ce6951d86b48dc6ef92987a2ba735fad79b5405a7836047"
 }
 ```
 
@@ -62,26 +78,31 @@ The `content` field is a JSON-stringified array of objects formatted as:
 
 Pubkeys are sorted in decreasing order by their ranks.
 
-#### Example response
+#### Example nak command
+```
+nak req -k 6313 -k 7000 --tag e=a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4 wss://relay.vertexlab.io
+```
+
+#### Example response event
 
 ```json
 {
-  "id": "171a0a7551c785ab0e2ac99577bfc25dd4fe7c28a19cacfcb625b4be2964ea4a",
-  "pubkey": "a9b008476119ea693cbd2f0b4de99fd346e2e30880b18d42234a1158bd323783",
-  "created_at": 1732759756,
+  "id": "58020b72ca2ee10bcb7f103f3e3bd714b7e0bb0a4a521af6b9eece79f798686e",
+  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
+  "created_at": 1739563709,
   "kind": 6313,
   "tags": [
     [
       "e",
-      "588d828025eab6404ed17c6c7a70d09a67c5da4ffe780e2f943f32509fe8af23"
+      "a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4"
     ],
     [
       "p",
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-"content": "[{\"pubkey\":\"bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62\",\"rank\":0.0025},{\"pubkey\":\"d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea\",\"rank\":0.00163},{\"pubkey\":\"6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2\",\"rank\":0.00154},{\"pubkey\":\"bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1\",\"rank\":0.00111},{\"pubkey\":\"5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a\",\"rank\":0.000107}]",
-  "sig": "c79f34b9f5603b242e00f0b04782d579ffcec2cb45e511fbbf1ba3e04d5297f7eb7a071433b0a14300fbd766feaf5e8e1f6fbd216ae1cce1cb400f987fc2d0d2"
+"content":"[{\"pubkey\":\"3efdaebb1d8923ebd99c9e7ace3b4194ab45512e2be79c1b7d68d9243e0d2681\",\"rank\":0.0036418093325618593},{\"pubkey\":\"f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106\",\"rank\":0.0017698512644225858},{\"pubkey\":\"c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0\",\"rank\":0.001701780061944794},{\"pubkey\":\"020f2d21ae09bf35fcdfb65decf1478b846f5f728ab30c5eaabcd6d081a81c3e\",\"rank\":0.001463530853272523},{\"pubkey\":\"a341f45ff9758f570a21b000c17d4e53a3a497c8397f26c0e6d61e5acffc7a98\",\"rank\":0.0013954596507947312}]",
+  "sig": "8c061e8dcb4bc93f6639674a0516143ce2a8c30c453a3fdae3a6ddce6eaa238c9e5ef1bf358842b740f1d044ea8fa5205e7ce9d2a571f158885e19224d527bbc"
 }
 ```
 
@@ -90,24 +111,24 @@ Formatted `content` JSON:
 ```json
 [
 	{
-		"pubkey": "bd0c0615960ff21214aee7f5b06fa0a104585938c8eb4b5cd4e2b109041fdf62",
-		"rank": 0.0025
+		"pubkey": "3efdaebb1d8923ebd99c9e7ace3b4194ab45512e2be79c1b7d68d9243e0d2681",
+		"rank": 0.0036418093325618593
 	},
 	{
-		"pubkey": "d05ab982e1105476ab68e4c6728d148f8e6222154e60cc359ef6b8599c820bea",
-		"rank": 0.00163
+		"pubkey": "f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106",
+		"rank": 0.0017698512644225858
 	},
 	{
-		"pubkey": "6efd1b46b3e6d1ec2447af7c905827bc83e1330bee2c3a6a5b8e0769734785e2",
-		"rank": 0.00154
+		"pubkey": "c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0",
+		"rank": 0.001701780061944794
 	},
 	{
-		"pubkey": "bb17f1e4e516e75e82a5b5e81c0120ffeb24e9e92866962440b9888ae82e42a1",
-		"rank": 0.00111
+		"pubkey": "020f2d21ae09bf35fcdfb65decf1478b846f5f728ab30c5eaabcd6d081a81c3e",
+		"rank": 0.001463530853272523
 	},
 	{
-		"pubkey": "5097f9b8bd3ebb3c240a6a0c95bdf24d22a10211181f90ba29c41c31c889ba0a",
-		"rank": 0.000107
+		"pubkey": "a341f45ff9758f570a21b000c17d4e53a3a497c8397f26c0e6d61e5acffc7a98",
+		"rank": 0.0013954596507947312
 	}
 ]
 ```
