@@ -50,9 +50,9 @@ nak event -k 5312 --tag param="source;04c915daefee38317fa734444acee390a8269fe581
 
 ```json
 {
-  "id": "9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506",
+  "id": "499cdc5da5b65484bd0ea0a9a217f5df8c61831c69281a7c6bdd19b892cf8fb7",
   "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
-  "created_at": 1739555306,
+  "created_at": 1740755346,
   "kind": 5312,
   "tags": [
     [
@@ -72,7 +72,7 @@ nak event -k 5312 --tag param="source;04c915daefee38317fa734444acee390a8269fe581
     ],
   ],
   "content": "",
-  "sig": "3ed4e46c34c72aa3af32c937dc2ff764e08b137b7287ed012320e31c9c83e85c4a093a91ef7c428957bba8051d7528e04482f5200218a10692cef8ca63830686"
+  "sig": "42b588cbea80efd75819c89c9048ac828f1cfa6086b84dfc2c3146aeef40207a3e0822874782cb683e2142976a2363e5f6ffa77f1a46f5cbef74f258fb18d2ef"
 }
 ```
 
@@ -86,33 +86,33 @@ The `content` field is a JSON-stringified array of objects formatted as:
 | {`pubkey`, `rank`} | {string, float} | a nostr hex Pubkey along with its rank |
 
 The first pair is always the `pubkey` and `rank` of the `target` 
-The subsequent pairs are the `pubkeys` and `ranks` of the top followers of `target` (decreasing order), determined by the algorithm specified in the `sort` parameter.
+The subsequent pairs are the `pubkeys` and `ranks` of the top followers of `target` (descending order), determined by the algorithm specified in the `sort` parameter.
 
 #### Example nak command
 ```
-nak req -k 6312 -k 7000 --tag e=9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506 wss://relay.vertexlab.io
+nak req -k 6312 -k 7000 --tag e=499cdc5da5b65484bd0ea0a9a217f5df8c61831c69281a7c6bdd19b892cf8fb7 wss://relay.vertexlab.io
 ```
 
 #### Example response event
 
 ```json
 {
-  "id": "961f2d72bc9d03615d5cae063a809320246683ae0f85c0cf3f66a4362e589f36",
+  "id": "ec82fec057d33f5fb6b1fd05c2c9cf8aa425ed79ca9662d70d9716a2470eb330",
   "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
-  "created_at": 1739555307,
+  "created_at": 1740755347,
   "kind": 6312,
   "tags": [
     [
       "e",
-      "9045744fb2e8d17ec2923bb74484e7f9fb092a92b2d714e788f9201a00f5b506"
+      "499cdc5da5b65484bd0ea0a9a217f5df8c61831c69281a7c6bdd19b892cf8fb7"
     ],
     [
       "p",
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-  "content":"[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.00039477825732073653},{\"pubkey\":\"04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9\",\"rank\":0.2424952119801195},{\"pubkey\":\"32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245\",\"rank\":0.0027687826425603387},{\"pubkey\":\"6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93\",\"rank\":0.002333993075376003},{\"pubkey\":\"472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e\",\"rank\":0.002272642400251833},{\"pubkey\":\"3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d\",\"rank\":0.002149941050003493}]"
-  "sig": "4d4a48d4e4151bdc8574b2601b3b8451ef8c941dc5e5e00a5d803e320df6eed95e10a34292c44d49a66e1cc6f0f348f00f240bdb9f28853f438118d287c58ffa"
+  "content":"[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.00034409542913234554},{\"pubkey\":\"04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9\",\"rank\":0.2365482693862695},{\"pubkey\":\"32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245\",\"rank\":0.002478020571038372},{\"pubkey\":\"6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93\",\"rank\":0.0023286458111049426},{\"pubkey\":\"472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e\",\"rank\":0.002203277709017957},{\"pubkey\":\"3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d\",\"rank\":0.002197942896163192}]",
+  "sig": "d96ac2b173fcf693382b104d8276b94ee5a3ee32788fbc37d06367bfecf409f84dd1219c449d696bacce314be4a8bc01f3cd6c062cce3c98613a92f2aaa63c01"
 }
 ```
 
@@ -122,27 +122,27 @@ Formatted `content` JSON:
 [
   	{
 		"pubkey": "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
-		"rank": 0.00039477825732073653
+		"rank": 0.00034409542913234554
 	},
 	{
 		"pubkey": "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9",
-		"rank": 0.2424952119801195
+		"rank": 0.2365482693862695
 	},
 	{
 		"pubkey": "32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245",
-		"rank": 0.0027687826425603387
+		"rank": 0.002478020571038372
 	},
 	{
 		"pubkey": "6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93",
-		"rank": 0.002333993075376003
+		"rank": 0.0023286458111049426
 	},
 	{
 		"pubkey": "472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e",
-		"rank": 0.002272642400251833
+		"rank": 0.002203277709017957
 	},
 	{
 		"pubkey": "3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d",
-		"rank": 0.002149941050003493
+		"rank": 0.002197942896163192
 	},
 ]
 ```

@@ -46,9 +46,9 @@ nak event -k 5313 --tag param="source;726a1e261cc6474674e8285e3951b3bb139be9a773
 
 ```json
 {
-  "id": "a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4",
+  "id": "cc2c3b40e18e6fc89d7d610c0ab4206433e2113cd3d2761bd65f42dfae13db2f",
   "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
-  "created_at": 1739563709,
+  "created_at": 1740755573,
   "kind": 5313,
   "tags": [
     [
@@ -63,7 +63,7 @@ nak event -k 5313 --tag param="source;726a1e261cc6474674e8285e3951b3bb139be9a773
     ],
   ],
   "content": "",
-  "sig": "217e633bd86280efb543891560b207703f999bc47a76955438e99aea929d87cd88de3346cfe109da4ce6951d86b48dc6ef92987a2ba735fad79b5405a7836047"
+  "sig": "4e2cbf41da885e0a4e380ffac7dffd4bffdc802ad1db3ac00c33c8ca36a2cba9e3829064cd0569c58788d6b7e0a0fc30dcdde7b0d281e5f9a0b9e87ea2e610bd"
 }
 ```
 
@@ -76,7 +76,7 @@ The `content` field is a JSON-stringified array of objects formatted as:
 |-----|-----|-----|
 | {`pubkey`, `rank`} | {string, float} | Recommended hex nostr pubkey, along with its rank |
 
-Pubkeys are sorted in decreasing order by their ranks.
+Pubkeys are sorted in descending order by their ranks.
 
 #### Example nak command
 ```
@@ -87,22 +87,22 @@ nak req -k 6313 -k 7000 --tag e=a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7a
 
 ```json
 {
-  "id": "58020b72ca2ee10bcb7f103f3e3bd714b7e0bb0a4a521af6b9eece79f798686e",
+  "id": "0accd69642c5169b2af04b5b94e946b630e54dac44989a3cb668f7fb7ca3eb32",
   "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
-  "created_at": 1739563709,
+  "created_at": 1740755573,
   "kind": 6313,
   "tags": [
     [
       "e",
-      "a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4"
+      "cc2c3b40e18e6fc89d7d610c0ab4206433e2113cd3d2761bd65f42dfae13db2f"
     ],
     [
       "p",
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
     ]
   ],
-"content":"[{\"pubkey\":\"3efdaebb1d8923ebd99c9e7ace3b4194ab45512e2be79c1b7d68d9243e0d2681\",\"rank\":0.0036418093325618593},{\"pubkey\":\"f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106\",\"rank\":0.0017698512644225858},{\"pubkey\":\"c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0\",\"rank\":0.001701780061944794},{\"pubkey\":\"020f2d21ae09bf35fcdfb65decf1478b846f5f728ab30c5eaabcd6d081a81c3e\",\"rank\":0.001463530853272523},{\"pubkey\":\"a341f45ff9758f570a21b000c17d4e53a3a497c8397f26c0e6d61e5acffc7a98\",\"rank\":0.0013954596507947312}]",
-  "sig": "8c061e8dcb4bc93f6639674a0516143ce2a8c30c453a3fdae3a6ddce6eaa238c9e5ef1bf358842b740f1d044ea8fa5205e7ce9d2a571f158885e19224d527bbc"
+"content":"[{\"pubkey\":\"3efdaebb1d8923ebd99c9e7ace3b4194ab45512e2be79c1b7d68d9243e0d2681\",\"rank\":0.0038803226794649343},{\"pubkey\":\"c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0\",\"rank\":0.0017699717485278592},{\"pubkey\":\"f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106\",\"rank\":0.0015997821573232574},{\"pubkey\":\"a341f45ff9758f570a21b000c17d4e53a3a497c8397f26c0e6d61e5acffc7a98\",\"rank\":0.0012594029749140537},{\"pubkey\":\"090254801a7e8e5085b02e711622f0dfa1a85503493af246aa42af08f5e4d2df\",\"rank\":0.001191327138432213}]",
+  "sig": "81db2c7e2ee73062de1a81a9216948169132b52355a1924bfcc366e49afd34b01ce3e02a3ffc7e8e586918f4a7a610f7ec6b7df7885a2f7d58e83d0ac59c07c1"
 }
 ```
 
@@ -112,23 +112,23 @@ Formatted `content` JSON:
 [
 	{
 		"pubkey": "3efdaebb1d8923ebd99c9e7ace3b4194ab45512e2be79c1b7d68d9243e0d2681",
-		"rank": 0.0036418093325618593
-	},
-	{
-		"pubkey": "f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106",
-		"rank": 0.0017698512644225858
+		"rank": 0.0038803226794649343
 	},
 	{
 		"pubkey": "c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0",
-		"rank": 0.001701780061944794
+		"rank": 0.0017699717485278592
 	},
 	{
-		"pubkey": "020f2d21ae09bf35fcdfb65decf1478b846f5f728ab30c5eaabcd6d081a81c3e",
-		"rank": 0.001463530853272523
+		"pubkey": "f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106",
+		"rank": 0.0015997821573232574
 	},
 	{
 		"pubkey": "a341f45ff9758f570a21b000c17d4e53a3a497c8397f26c0e6d61e5acffc7a98",
-		"rank": 0.0013954596507947312
+		"rank": 0.0012594029749140537
+	},
+	{
+		"pubkey": "090254801a7e8e5085b02e711622f0dfa1a85503493af246aa42af08f5e4d2df",
+		"rank": 0.001191327138432213
 	}
 ]
 ```
