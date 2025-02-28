@@ -7,6 +7,7 @@ We are proposing new specifications that cover the range of our [NIP-90 Data Ven
 
 {{< cards >}}
     {{< card link="verify-reputation-dvm" title="Verify Reputation DVM" icon="badge-check" >}}
-    {{< card link="recommend-follows-dvm" title="Recommend Follows DVM" icon="arrow-right" >}}
-    {{< card link="sort-authors-dvm" title="Sort Authors DVM" icon="sort-descending" >}}
+    {{< card link="recommend-follows-dvm" title="Recommend Follows DVM" icon="sparkles" >}}
+    {{< card link="sort-profiles-dvm" title="Sort Profiles DVM" icon="sort-descending" >}}
+    {{< card link="search-profiles-dvm" title="Search Profiles DVM" icon="search" >}}
 {{< /cards >}}

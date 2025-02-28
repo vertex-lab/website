@@ -1,5 +1,5 @@
 ---
-title: Sort Authors DVM
+title: Sort Profiles DVM
 weight: 30
 ---
 
@@ -11,7 +11,7 @@ Example use-cases:
 
  - Sorting comments under a note
  - Sorting zaps in a zap list
- - Surfacing relevant pubkeys' content in search results
+ - Ranking pubkeys' content
 
 ### Kinds
 
