@@ -26,17 +26,17 @@
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="No fuss WoT"
-    subtitle="Supercharge your app with web of trust capabilities in just a few minutes. Send a request to our DVMs to surface relevant content and remove noise, personalized to each one of your users."
+    subtitle="Supercharge your app with web of trust capabilities in just a few minutes. Send a request to our DVMs to surface relevant profiles and remove noise, personalized to each one of your users."
     style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Fast and reliable"
-    subtitle="We designed a data structure from scratch to provide the fastest access to Pagerank and Personalized Pagerank in nostr. All of our responses are cryptographically signed by our key."
+    subtitle="We designed data structures and algorithms from scratch to provide the fastest access to Pagerank and Personalized Pagerank in nostr. All of our responses are cryptographically signed by our key."
     style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Open and trustworthy"
-    subtitle="We run web services and strive to remain transparent. We return proofs for many of our claims, and are committed to open standards. That's why we are opening the discussion around Web of Trust DVM NIPs."
+    subtitle="We are fully open source and committed to open standards. We are also working on schemes to enable cryptographic client-side validation of many of our claims."
     style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}
