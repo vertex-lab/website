@@ -114,25 +114,25 @@ Formatted `content` JSON:
 
 ```json
 [
-	{
-		"pubkey": "82341f882b6eabcd2ba7f1ef90aad961cf074af15b9ef44a09f9d2a8fbfbe6a2",
-		"rank": 8.224848486131593
-	},
-	{
-		"pubkey": "c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0",
-		"rank": 2.120725804894317
-	},
-	{
-		"pubkey": "a1fc5dfd7ffcf563c89155b466751b580d115e136e2f8c90e8913385bbedb1cf",
-		"rank": 0.2690585544819
-	},
-  {
-		"pubkey": "c5fb6ecc876e0458e3eca9918e370cbcd376901c58460512fe537a46e58c38bb",
-		"rank": 0.14113029299502666
-	},
-  {
-		"pubkey": "5e5fc1434c928bcdcba6f801859d5238341093291980fd36e33b7416393d5a2c",
-		"rank": 0.12754991708985827
-	},
+    {
+      "pubkey": "82341f882b6eabcd2ba7f1ef90aad961cf074af15b9ef44a09f9d2a8fbfbe6a2",
+      "rank": 8.224848486131593
+    },
+    {
+      "pubkey": "c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0",
+      "rank": 2.120725804894317
+    },
+    {
+      "pubkey": "a1fc5dfd7ffcf563c89155b466751b580d115e136e2f8c90e8913385bbedb1cf",
+      "rank": 0.2690585544819
+    },
+    {
+      "pubkey": "c5fb6ecc876e0458e3eca9918e370cbcd376901c58460512fe537a46e58c38bb",
+      "rank": 0.14113029299502666
+    },
+    {
+      "pubkey": "5e5fc1434c928bcdcba6f801859d5238341093291980fd36e33b7416393d5a2c",
+      "rank": 0.12754991708985827
+    },
 ]
 ```
