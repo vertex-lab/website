@@ -99,6 +99,14 @@ nak req -k 6313 -k 7000 --tag e=a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7a
     [
       "p",
       "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+    ],
+    [
+      "sort",
+      "personalizedPagerank"
+    ],
+    [
+      "source",
+      "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9"
     ]
   ],
 "content":"[{\"pubkey\":\"3efdaebb1d8923ebd99c9e7ace3b4194ab45512e2be79c1b7d68d9243e0d2681\",\"rank\":0.0038803226794649343},{\"pubkey\":\"c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0\",\"rank\":0.0017699717485278592},{\"pubkey\":\"f728d9e6e7048358e70930f5ca64b097770d989ccd86854fe618eda9c8a38106\",\"rank\":0.0015997821573232574},{\"pubkey\":\"a341f45ff9758f570a21b000c17d4e53a3a497c8397f26c0e6d61e5acffc7a98\",\"rank\":0.0012594029749140537},{\"pubkey\":\"090254801a7e8e5085b02e711622f0dfa1a85503493af246aa42af08f5e4d2df\",\"rank\":0.001191327138432213}]",
