@@ -27,11 +27,12 @@ We are confident in this decision because the value of Vertex is not in the soft
 
 ## What we offer
 
-We currently support three DVMs, but we plan to increase our offering substantially this year.
+We currently support four DVMs, but we plan to increase our offering substantially this year.
 
 1. [`VerifyReputation`](/docs/nips/verify-reputation-dvm/): give your users useful and personalized information to asses the reputation of an npub, minimizing the risk of impersonations.
 2. [`RecommendFollows`](/docs/nips/recommend-follows-dvm/): give your users personalized recommendations about interesting npubs they might want who to follow.
 3. [`SortProfiles`](/docs/nips/sort-profiles-dvm/): give your users the ability to sort replies, comments, zaps, and just about anything using the authors' reputations.
+4. [`SearchProfiles`](/docs/nips/search-profiles-dvm/): give your users a fast and accurate search experience, without the need of any infrastructure.
 
 To learn more, watch this 4 minute walk-through video.
 
