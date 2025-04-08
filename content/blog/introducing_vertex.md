@@ -42,4 +42,4 @@ To learn more, watch this 4 minute walk-through video.
     Your browser does not support the video tag.
 </video>
 
-We are also considering offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or projects. Please reach out if you are interested.
+We are also considering offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or projects. Please [reach out](https://npub.world/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup) if you are interested.
