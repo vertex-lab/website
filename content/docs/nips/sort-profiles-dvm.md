@@ -3,8 +3,6 @@ title: Sort Profiles DVM
 weight: 30
 ---
 
-([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
-
 This service sorts a provided list of pubkeys using the specified algorithm.
 
 Example use-cases:
@@ -21,16 +19,14 @@ Example use-cases:
 
 ### Request parameters
 
-| Parameter | Type | Description | Default Value |
-|-----|-----|-----|-----|
-| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `target` | string _(required)_  | Author pubkey to sort | - |
-| `sort` | string | Algorithm used to sort results | `globalPagerank` |
-| `limit` | int | Maximum number of results returned in a response | `5` |
+| Param | Type | Description | Default Value | Max |
+|-----|-----|-----|-----|-----|
+| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request | 1 |
+| `target`  _(required)_  | string | Author pubkey to sort | - | 1000 |
+| `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
+| `limit` | int | Maximum number of results returned in a response | `5` | `1000` |
 
-Pubkeys can be in either hex or npub format.
-Only one `source` can be supplied.
-Multiple `target` parameters SHOULD be supplied.
+Multiple `target` parameters SHOULD be supplied, as npubs or hex pubkeys.
 
 #### Sorting algorithms
 

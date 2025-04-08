@@ -1,5 +1,5 @@
 ---
-title: Specifications
+title: Docs
 weight: 10
 ---
 

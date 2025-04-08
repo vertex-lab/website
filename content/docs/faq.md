@@ -1,5 +1,5 @@
 ---
-title: Vertex FAQ
+title: FAQs
 breadcrumbs: true
 weight: 5
 ---
@@ -62,4 +62,4 @@ Vertex only processes publicly available data from the nostr network. It does no
 
 ### Do you have any other questions?
 
-Hit us up: [Vertex on nostr](https://njump.me/npub1kpt95rv4q3mcz8e4lamwtxq7men6jprf49l7asfac9lnv2gda0lqdknhmz)
+Just [ask Pip](https://npub.world/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup)

@@ -3,9 +3,7 @@ title: Verify Reputation DVM
 weight: 10
 ---
 
-([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
-
-This service returns reputation information about a pubkey, including a list of pubkeys who follow it sorted by an algorithm.
+This service returns reputation information about a pubkey, including a list of pubkeys who follow it sorted by an algorithm. [Try it live here](https://npub.world/npub1kpt95rv4q3mcz8e4lamwtxq7men6jprf49l7asfac9lnv2gda0lqdknhmz).
 
 Example use-cases:
 
@@ -21,12 +19,12 @@ Example use-cases:
 
 ### Request parameters
 
-| Parameter | Type | Description | Default Value |
-|-----|-----|-----|-----|
-| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `target` | string _(required)_ | Pubkey the requester is interested in | - |
-| `sort`| string | Algorithm used to sort results | `globalPagerank` |
-| `limit` | int | Maximum number of results returned in a response | `5` |
+| Param | Type | Description | Default Value | Max |
+|-----|-----|-----|-----| ----- |
+| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request | 1 |
+| `target` _(required)_  | string| Pubkey the requester is interested in | - | 1 |
+| `sort`| string | Algorithm used to sort results | `globalPagerank` | 1 |
+| `limit` | int | Maximum number of results returned in a response | `5` | `1000` |
 
 Pubkeys can be in either hex or npub format.
 

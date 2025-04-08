@@ -3,9 +3,7 @@ title: Search Profiles DVM
 weight: 40
 ---
 
-([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
-
-This service provides a list of pubkeys matching the provided search term.
+This service provides a list of pubkeys matching the provided search term. [Try it live here](https://npub.world/).
 
 Example use-cases:
 
@@ -20,12 +18,12 @@ Example use-cases:
 
 ### Request parameters
 
-| Parameter | Type | Description | Default Value |
-|-----|-----|-----|-----|
-| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request |
-| `search` | string _(required)_  | The search terms | - |
-| `sort` | string | Algorithm used to sort results | `globalPagerank` |
-| `limit` | int | Maximum number of results returned in a response | `5` |
+| Param | Type | Description | Default Value | Max |
+|-----|-----|-----|-----|-----|
+| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request | 1 |
+| `search` _(required)_  | string | The search terms | - | 1 |
+| `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
+| `limit` | int | Maximum number of results returned in a response | `5` | `1000` |
 
 Only one `search` can be supplied.
 

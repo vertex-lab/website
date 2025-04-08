@@ -3,7 +3,6 @@ title: Recommend Follows DVM
 weight: 20
 ---
 
-([Nostr DVM draft PR](https://github.com/nostr-protocol/data-vending-machines/pull/38))
 
 This service returns a list of recommended pubkeys (the ones with highest rank excluding source and its follows) sorted by an algorithm.
 
@@ -18,11 +17,11 @@ Example use-cases:
 
 ### Request parameters
 
-| Parameter | Type | Description | Default Value |
-|-----|-----|-----|-----|
-| `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request |
-| `sort` | string | Algorithm used to sort results | `globalPagerank` |
-| `limit` | int | Maximum number of results returned in a response | `5` |
+| Param | Type | Description | Default Value | Max |
+|-----|-----|-----|-----|-----|
+| `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request | 1 |
+| `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
+| `limit` | int | Maximum number of results returned in a response | `5` | 1000 |
 
 Pubkeys can be in either hex or npub format.
 
