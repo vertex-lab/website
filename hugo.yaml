@@ -17,7 +17,7 @@ markup:
 
 menu:
   main:
-    - name: Documentation
+    - name: Docs
       pageRef: /docs
       weight: 2
     - name: Blog
@@ -46,14 +46,14 @@ menu:
 
 params:
   navbar:
-    displayTitle: true
+    displayTitle: false
     displayLogo: true
     logo:
-      path: images/v.jpg
-      dark: images/v.jpg
+      path: images/logo_hor.svg
+      dark: images/logo_hor.svg
       link: /
-      width: 28
-      height: 28
+      width: 120
+      height: 30
     width: normal
 
   footer:
@@ -76,5 +76,5 @@ params:
 
   theme:
     # light | dark | system
-    default: dark
+    default: light
     displayToggle: false
