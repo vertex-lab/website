@@ -1,7 +1,7 @@
 ---
 title: Docs
 next: docs/faq
-breadcrumbs: false
+breadcrumbs: true
 ---
 
 <html lang="en-us">

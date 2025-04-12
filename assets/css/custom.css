@@ -6,7 +6,7 @@ body {
   margin-top: 20px;
 }
 
-.button-container {
+.hero-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,27 +15,26 @@ body {
   margin-bottom: 70px;
 }
 
-.button-container a {
+.hero-button a {
   background-color: #615FFF;
   border-radius: 20px;
   transition: all 0.3s ease;
 }
 
-.button-container a:hover {
+.hero-button a:hover {
   background-color: #4F39F6;
   font-size: larger;
 }
 
-
 .hextra-feature-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   justify-items: center;
   align-items: stretch;
   max-width: 900px;
   margin: 0 auto;
   width: 100%;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .hextra-feature-card {
@@ -60,8 +59,87 @@ body, .content {
   padding-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
+.pricing-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 700px;
+  margin-top: 40px;
+}
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.tag-badge {
+  font-weight:500;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: #FEF3C6;
+  color: #404040;
+  font-size: 0.75rem;
+  padding: 5px 9px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pricing-card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.pricing-card p {
+  font-size: 1rem;
+  color: #404040c8;
+  margin: 10px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.pricing-card .price {
+  font-size: 1.5rem;
+  color: #404040;
+  margin: 10px 0;
+}
+
+.normal-button {
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.normal-button a {
+  font-weight: bold;
+  background-color: #7C86FF;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+}
+
+.normal-button a:hover {
+  background-color: #615FFF;
+}
+
+@media (max-width: 576px) {
   .hextra-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-container {
     grid-template-columns: 1fr;
   }
 

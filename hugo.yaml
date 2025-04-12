@@ -19,10 +19,13 @@ menu:
   main:
     - name: Docs
       pageRef: /docs
+      weight: 1
+    - name: Pricing
+      pageRef: /pricing
       weight: 2
     - name: Blog
       pageRef: /blog
-      weight: 2
+      weight: 3
     - name: Search
       weight: 4
       params:

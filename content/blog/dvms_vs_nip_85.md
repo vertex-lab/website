@@ -53,4 +53,4 @@ This operation is computationally expensive, especially on mobile devices. It is
 
 Are you looking to add Web of Trust capabilities to your app or project?
 
-[Take a look at our website](https://vertexlab.io/) or [send a DM to Pip](https://npub.world/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup).
+[Take a look at our website](https://vertexlab.io/) or [send a DM to Pip](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-).

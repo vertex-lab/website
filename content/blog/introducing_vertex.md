@@ -5,11 +5,11 @@ date: 2025-02-05
 
 After many months of ideation, research, and heads-down building, [Fran](https://njump.me/npub1wf4pufsucer5va8g9p0rj5dnhvfeh6d8w0g6eayaep5dhps6rsgs43dgh9) and [myself](https://njump.me/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup) are excited to announce our new project called Vertex.
 
-**Vertex's mission is to provide developers and builders with the most up-to-date and easy-to-use social graph tools**.
+**Vertex's mission is to provide developers and builders with the most up-to-date and easy-to-use Web of Trust tools**.
 
 Our services will enable our future customers to improve the experience they provide by offering:
-- Protection against **impersonation** and **DoS attacks**
-- Personalized **discovery** and **recommendations**.
+- Protection against impersonation and DoS attacks
+- Personalized discovery and recommendations.
 
 All in an open, transparent and interoperable way.
 
@@ -35,6 +35,7 @@ We currently support four DVMs, but we plan to increase our offering substantial
 4. [`SearchProfiles`](/docs/nips/search-profiles-dvm/): give your users a fast and accurate search experience, without the need of any infrastructure.
 
 To learn more, watch this 4 minute walk-through video.
+<div class="hx-mt-5"></div>
 
 <video width="100%" controls>
     <source src="https://cdn.satellite.earth/6efabff7da55ce848074351b2d640ca3bde4515060d9aba002461a4a4ddad8d8.mp4" type="video/mp4">
@@ -42,4 +43,4 @@ To learn more, watch this 4 minute walk-through video.
     Your browser does not support the video tag.
 </video>
 
-We are also considering offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or projects. Please [reach out](https://npub.world/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup) if you are interested.
+We are also offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or project. If you are interested, [reach out here](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-).

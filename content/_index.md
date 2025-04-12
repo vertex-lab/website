@@ -21,11 +21,11 @@ layout: hextra-home
 </div>
 {{< /hextra/hero-container >}}
 
-<div class="button-container">
-  {{< hextra/hero-button text="Read the docs" link="docs" >}}
+<div class="hero-button">
+  {{< hextra/hero-button text="Read the Docs" link="docs" >}}
 </div>
 
-{{< hextra/feature-grid >}}
+{{< hextra/feature-grid>}}
   {{< hextra/feature-card
     title="Effortless Web of Trust"
     subtitle="Supercharge your app with Web of Trust capabilities in minutes. Surface high-signal profiles tailored to each user, filtering out the noise automatically."
@@ -34,7 +34,7 @@ layout: hextra-home
 
   {{< hextra/feature-card
     title="Built for Speed"
-    subtitle="Custom-designed data structures deliver ultra-fast Pagerank and Personalized Pagerank queries. Optimized for nostr, from the ground up."
+    subtitle="Custom-designed data structures deliver real-time Pagerank and Personalized Pagerank queries. Optimized for nostr, from the ground up."
     style="background: linear-gradient(135deg, rgba(142, 197, 255, 0.1), hsla(0,0%,100%,0));"
   >}}
 
