@@ -1,9 +1,9 @@
 ---
-title: Search Profiles DVM
+title: Search Profiles
 weight: 40
 ---
 
-This service provides a list of pubkeys matching the provided search term. [Try it live here](https://npub.world/).
+This service provides a list of pubkeys matching the provided search term. [Try it live on npub.world](https://npub.world/).
 
 Example use-cases:
 

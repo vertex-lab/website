@@ -1,6 +1,7 @@
 ---
 title: Why we don't use NIP-85
 date: 2025-04-08
+summary: "When it comes to the Nostr Web of Trust, several NIPs have been proposed, but the one that seemed to gather the most traction was Trusted Assertion by Vitor Pamplona..."
 ---
 
 When it comes to the Nostr Web of Trust, several NIPs have been proposed, but the one that seemed to gather the most traction was [Trusted Assertion](https://github.com/nostr-protocol/nips/pull/1534) by [Vitor Pamplona](https://npub.world/npub1gcxzte5zlkncx26j68ez60fzkvtkm9e0vrwdcvsjakxf9mu9qewqlfnj5z).

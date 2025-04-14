@@ -1,5 +1,5 @@
 ---
-title: Sort Profiles DVM
+title: Sort Profiles
 weight: 30
 ---
 

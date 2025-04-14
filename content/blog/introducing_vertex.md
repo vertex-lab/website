@@ -1,15 +1,17 @@
 ---
 title: Introducing Vertex
 date: 2025-02-05
+summary: "After months of research and development, we're excited to launch Vertex—delivering fast, high-signal, and easy-to-use Web of Trust for developers and builders..."
 ---
 
-After many months of ideation, research, and heads-down building, [Fran](https://njump.me/npub1wf4pufsucer5va8g9p0rj5dnhvfeh6d8w0g6eayaep5dhps6rsgs43dgh9) and [myself](https://njump.me/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup) are excited to announce our new project called Vertex.
+After many months of ideation, research, and heads-down building, [Fran](https://npub.world/npub1wf4pufsucer5va8g9p0rj5dnhvfeh6d8w0g6eayaep5dhps6rsgs43dgh9) and [myself](https://npub.world/npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup) are excited to announce our new project called Vertex.
 
 **Vertex's mission is to provide developers and builders with the most up-to-date and easy-to-use Web of Trust tools**.
 
-Our services will enable our future customers to improve the experience they provide by offering:
-- Protection against impersonation and DoS attacks
-- Personalized discovery and recommendations.
+Our services help customers enhance their user experience by offering:
+- Defense against spam and impersonation
+- Personalized discovery and recommendations
+- Protection from DoS attacks
 
 All in an open, transparent and interoperable way.
 
@@ -29,10 +31,10 @@ We are confident in this decision because the value of Vertex is not in the soft
 
 We currently support four DVMs, but we plan to increase our offering substantially this year.
 
-1. [`VerifyReputation`](/docs/nips/verify-reputation-dvm/): give your users useful and personalized information to asses the reputation of an npub, minimizing the risk of impersonations.
-2. [`RecommendFollows`](/docs/nips/recommend-follows-dvm/): give your users personalized recommendations about interesting npubs they might want who to follow.
-3. [`SortProfiles`](/docs/nips/sort-profiles-dvm/): give your users the ability to sort replies, comments, zaps, and just about anything using the authors' reputations.
-4. [`SearchProfiles`](/docs/nips/search-profiles-dvm/): give your users a fast and accurate search experience, without the need of any infrastructure.
+1. [`VerifyReputation`](/docs/services/verify-reputation/): give your users useful and personalized information to asses the reputation of an npub, minimizing the risk of impersonations.
+2. [`RecommendFollows`](/docs/services/recommend-follows/): give your users personalized recommendations about interesting npubs they might want who to follow.
+3. [`SortProfiles`](/docs/services/sort-profiles/): give your users the ability to sort replies, comments, zaps, and just about anything using the authors' reputations.
+4. [`SearchProfiles`](/docs/services/search-profiles/): give your users a fast and accurate search experience, without the need of any infrastructure.
 
 To learn more, watch this 4 minute walk-through video.
 <div class="hx-mt-5"></div>

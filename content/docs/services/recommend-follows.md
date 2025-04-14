@@ -1,5 +1,5 @@
 ---
-title: Recommend Follows DVM
+title: Recommend Follows
 weight: 20
 ---
 

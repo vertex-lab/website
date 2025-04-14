@@ -1,5 +1,14 @@
+:root {
+  --background-color: #f9f9f9;
+  --border-color: #ddd;
+  --accent-color: #7C86FF;
+  --darker-accent-color: #615FFF;
+  --text-color: #404040;
+  --light-text-color: #404040c8;
+}
+
 body {
-  background-color: #f9f9f9;
+  background-color: var(--background-color);
 }
 
 .custom-image {
@@ -16,14 +25,19 @@ body {
 }
 
 .hero-button a {
-  background-color: #615FFF;
+  background-color: var(--accent-color);
   border-radius: 20px;
   transition: all 0.3s ease;
 }
 
 .hero-button a:hover {
-  background-color: #4F39F6;
+  background-color: var(--darker-accent-color);
   font-size: larger;
+}
+
+.hextra-scrollbar div {
+  box-shadow: none;
+  background-color: var(--background-color);
 }
 
 .hextra-feature-grid {
@@ -71,11 +85,12 @@ body, .content {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 22px 19px;
+  align-items: center;
   text-align: center;
 }
 
@@ -87,7 +102,8 @@ body, .content {
   margin-top: 10px;
   margin-right: 10px;
   background-color: #FEF3C6;
-  color: #404040;
+  color: #cbba74;
+  border: #cbba74;
   font-size: 0.75rem;
   padding: 5px 9px;
   border-radius: 999px;
@@ -101,7 +117,7 @@ body, .content {
 
 .pricing-card p {
   font-size: 1rem;
-  color: #404040c8;
+  color: var(--light-text-color);
   margin: 10px 0;
   padding-left: 20px;
   padding-right: 20px;
@@ -109,29 +125,75 @@ body, .content {
 
 .pricing-card .price {
   font-size: 1.5rem;
-  color: #404040;
+  color: var(--text-color);
   margin: 10px 0;
 }
 
-.normal-button {
+.price-button {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-weight: bold;
   font-size: medium;
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
+  padding: 8px 20px;
+  margin: 15px 0px;
+}
+
+.price-button:hover {
+  background-color: var(--darker-accent-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
 }
 
-.normal-button a {
+.modal-content {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 20px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 700px;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
   font-weight: bold;
-  background-color: #7C86FF;
-  border-radius: 18px;
-  transition: all 0.3s ease;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.normal-button a:hover {
-  background-color: #615FFF;
+.modal-content a {
+  text-decoration: underline;
+}
+
+.steps {
+  color: var(--text-color);
+}
+
+.modal-content ul {
+  margin-top: 10px;
+  padding-left: 30px;
+  list-style-type:disc;
+  line-height: 1.8;
 }
 
 @media (max-width: 576px) {
@@ -159,7 +221,7 @@ body, .content {
 }
 
 .gradient-text {
-  background-color: #404040;
+  background-color: var(--text-color);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent !important;

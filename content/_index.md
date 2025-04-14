@@ -34,7 +34,7 @@ layout: hextra-home
 
   {{< hextra/feature-card
     title="Built for Speed"
-    subtitle="Custom-designed data structures deliver real-time Pagerank and Personalized Pagerank queries. Optimized for nostr, from the ground up."
+    subtitle="Custom-designed data structures deliver real-time Pagerank and Personalized Pagerank queries. Optimized for Nostr, from the ground up."
     style="background: linear-gradient(135deg, rgba(142, 197, 255, 0.1), hsla(0,0%,100%,0));"
   >}}
 
