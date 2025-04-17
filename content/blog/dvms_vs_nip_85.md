@@ -1,5 +1,5 @@
 ---
-title: Why we don't use NIP-85
+title: Why We Don't Use NIP-85
 date: 2025-04-08
 summary: "When it comes to the Nostr Web of Trust, several NIPs have been proposed, but the one that seemed to gather the most traction was Trusted Assertion by Vitor Pamplona..."
 ---
@@ -25,11 +25,11 @@ Example event:
 
 However, we quickly realized that this NIP was too limiting for what we wanted to accomplish: *real-time, personalized ranking*.
 
-To illustrate our different approaches, we will show how to replicate our [Verify Reputation](https://vertexlab.io/docs/nips/verify-reputation-dvm/) with trusted assertions.
+To illustrate our different approaches, we will show how to replicate our [Verify Reputation](/docs/services/verify-reputation) with trusted assertions.
 
 ### Verify Reputation
 
-[Verify Reputation](/content/docs/nips/verify-reputation-dvm.md) returns:
+[Verify Reputation](/docs/services/verify-reputation/) returns:
 - the rank, follow count and followers count of the given `target`
 - its top followers by rank.
 
@@ -50,8 +50,9 @@ This operation is computationally expensive, especially on mobile devices. It is
 
 **More generally, trusted assertions are very hard to use when one doesn't know the pubkeys of the people he's looking for.** **This goes fundamentally against our approach of Web of Trust, as a powerful mechanism for discovery.**
 
+<div class="hx-mt-5"></div>
+
 ---
 
-Are you looking to add Web of Trust capabilities to your app or project?
-
+Are you looking to add Web of Trust capabilities to your app or project?  
 [Take a look at our website](https://vertexlab.io/) or [send a DM to Pip](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-).

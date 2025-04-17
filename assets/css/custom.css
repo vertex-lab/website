@@ -5,11 +5,18 @@
   --darker-accent-color: #615FFF;
   --text-color: #404040;
   --light-text-color: #404040c8;
+
+  --code-background-color: #7c94ff1a;
 }
 
 body {
   background-color: var(--background-color);
 }
+
+/* .hextra-code-block pre {
+  background-color: var(--code-background-color) !important;
+  color: #404040  !important;
+} */
 
 .custom-image {
   margin-top: 20px;

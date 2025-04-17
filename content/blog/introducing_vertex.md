@@ -17,7 +17,7 @@ All in an open, transparent and interoperable way.
 
 ## Open and Interoperable
 
-We have structured our services as [NIP-90 Data Vending Machines](https://github.com/nostr-protocol/nips/blob/master/90.md). We are currently using [these DVMs](/docs/nips) and we are eager to hear what the community thinks and if anyone has suggestions for improvements.
+We have structured our services as [NIP-90 Data Vending Machines](https://github.com/nostr-protocol/nips/blob/master/90.md). We are currently offering [these DVMs](/docs/services/) and we are eager to hear what the community thinks and if anyone has suggestions for improvements.
 
 Regardless of their specific structures, using DVMs means one very important thing: **no vendor lock-in**.
 
@@ -37,12 +37,13 @@ We currently support four DVMs, but we plan to increase our offering substantial
 4. [`SearchProfiles`](/docs/services/search-profiles/): give your users a fast and accurate search experience, without the need of any infrastructure.
 
 To learn more, watch this 4 minute walk-through video.
-<div class="hx-mt-5"></div>
 
+<div class="hx-mt-5"></div>
 <video width="100%" controls>
     <source src="https://cdn.satellite.earth/6efabff7da55ce848074351b2d640ca3bde4515060d9aba002461a4a4ddad8d8.mp4" type="video/mp4">
     <source src="https://cdn.satellite.earth/792705217ecb755435b708cc23615259f8d7923974e14ed9a586d3fa2c16c804.webm" type="video/webm">
     Your browser does not support the video tag.
 </video>
 
-We are also offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or project. If you are interested, [reach out here](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-).
+We are also offering a custom service to help builders clarify and implement their vision for Web of Trust in their own applications or project.  
+If you are interested, [reach out here](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-).

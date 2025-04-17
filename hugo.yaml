@@ -6,12 +6,15 @@ module:
   - path: github.com/imfing/hextra
 
 markup:
-  # allow raw html
   goldmark:
     renderer:
-      unsafe: true
+      unsafe: true  # for rendering html
+    extensions:
+      passthrough:
+        delimiters:
+          block: [['$$', '$$']]
+        enable: true
 
-  # enable hextra syntax highlight
   highlight:
     noClasses: false
 
@@ -35,17 +38,6 @@ menu:
       url: "https://github.com/vertex-lab"
       params:
         icon: github
-  # sidebar:
-  #   - name: More
-  #     params:
-  #       type: separator
-  #     weight: 1
-  #   - name: "About"
-  #     pageRef: "/about"
-  #     weight: 2
-  #   - name: "Hugo Docs ↗"
-  #     url: "https://gohugo.io/documentation/"
-  #     weight: 3
 
 params:
   navbar:
