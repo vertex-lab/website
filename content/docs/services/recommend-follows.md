@@ -21,7 +21,7 @@ Example use-cases:
 |-----|-----|-----|-----|-----|
 | `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request | 1 |
 | `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
-| `limit` | int | Maximum number of results returned in a response | `5` | 1000 |
+| `limit` | int | Maximum number of results returned in a response | `5` | `100` |
 
 Pubkeys can be in either hex or npub format.
 
