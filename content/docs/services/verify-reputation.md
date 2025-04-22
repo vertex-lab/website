@@ -21,21 +21,13 @@ Example use-cases:
 
 | Param | Type | Description | Default Value | Max |
 |-----|-----|-----|-----| ----- |
-| `source` | string | The source pubkeys used for personalized algorithms | The pubkey signing the DVM request | 1 |
+| `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request | 1 |
 | `target` _(required)_  | string| Pubkey the requester is interested in | - | 1 |
 | `sort`| string | Algorithm used to sort results | `globalPagerank` | 1 |
 | `limit` | int | Maximum number of results returned in a response | `5` | `100` |
 
-Pubkeys can be in either hex or npub format.
-
-#### Sorting algorithms
-
-We currently support the following algorithms:
-
- - `globalPagerank`: Global Pagerank
- - `personalizedPagerank`: Personalized Pagerank
-
-If you are unsure about which one to use, [read our FAQs](https://vertexlab.io/docs/faq/#what-is-the-difference-between-global-and-personalized-pagerank)
+Pubkeys can be in either hex or npub format.  
+Sorting algorithms can be found [here](/docs/algos).
 
 ### Request
 

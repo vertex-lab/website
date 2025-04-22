@@ -41,15 +41,9 @@ Yes, our services can help you prioritize reputable users, power-up discovery an
 
 {{% details title="Can I choose the algorithm?" closed="true"%}}
 
-Yes, we currently offer Global Pagerank and Personalized Pagerank, but more algorithm are going to be added in the future.
+Yes, you simply need to specify it in the `sort` param of the request. We currently support `followerCount`, `globalPagerank`, and `personalizedPagerank`.  
 
-{{% /details %}}
-
-{{% details title="What is the difference between Global and Personalized Pagerank?" closed="true"%}}
-
-[Global PageRank](https://en.wikipedia.org/wiki/PageRank) is an algorithm that assigns a score to each node in a graph, representing the "average perspective" based on the network's structure.
-
-[Personalized PageRank](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8895775), on the other hand, tailors the results to an individual, adjusting rankings based on their unique connections and interactions within the graph.
+To learn more, check out our [algorithms](/docs/algos).
 
 {{% /details %}}
 
