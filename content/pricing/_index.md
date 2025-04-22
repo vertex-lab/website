@@ -1,5 +1,4 @@
 ---
-layout: hextra-home
 toc: false
 ---
 
