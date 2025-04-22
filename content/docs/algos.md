@@ -14,7 +14,7 @@ A simple algorithm that ranks entities solely by their number of followers.
 A slight modification of [Pagerank](https://en.wikipedia.org/wiki/PageRank), which assigns each node a score representing its "average perceived importance" based on the overall structure of the network.
 
 - `personalizedPagerank`:  
-A variation of [Personalized Pagerank](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8895775), which adjusts rankings for each user based on their unique connections and interactions within the graph.
+A variation of [Personalized Pagerank](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8895775), which adjusts rankings for each user based on their unique connections within the graph.
 
 ## Tradeoffs
 
