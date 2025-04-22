@@ -21,9 +21,9 @@ Example use-cases:
 
 | Param | Type | Description | Default Value | Max |
 |-----|-----|-----|-----|-----|
-| `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `target`  _(required)_  | string | Author pubkey to sort | - | 1000 |
+| `target`  _(required)_  | string | Pubkey whose ranking is being requested | - | 1000 |
 | `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
+| `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
 | `limit` | int | Maximum number of results returned in a response | `5` | `1000` |
 
 Multiple `target` parameters SHOULD be supplied, as npubs or hex pubkeys.  
@@ -72,7 +72,7 @@ The `content` field is a JSON-stringified array of objects formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`pubkey`, `rank`} | {string, float} | Requested target along with its rank |
+| {`pubkey`, `rank`} | {string, float} | a nostr hex pubkey along with its rank |
 
 Pubkeys are sorted in decreasing order by their ranks.
 

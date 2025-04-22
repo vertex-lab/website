@@ -21,9 +21,9 @@ Example use-cases:
 
 | Param | Type | Description | Default Value | Max |
 |-----|-----|-----|-----| ----- |
-| `source` | string | The source pubkey used for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `target` _(required)_  | string| Pubkey the requester is interested in | - | 1 |
+| `target` _(required)_  | string| Pubkey whose reputation is being requested | - | 1 |
 | `sort`| string | Algorithm used to sort results | `globalPagerank` | 1 |
+| `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
 | `limit` | int | Maximum number of results returned in a response | `5` | `100` |
 
 Pubkeys can be in either hex or npub format.  
@@ -73,7 +73,7 @@ The `content` field is a JSON-stringified array of objects formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`pubkey`, `rank`} | {string, float} | a nostr hex Pubkey along with its rank |
+| {`pubkey`, `rank`} | {string, float} | a nostr hex pubkey along with its rank |
 
 The first object is always the `pubkey` and `rank` of the `target`, as well as its `follows` and `followers` counts (`int`). The follower count does not take into account spammers or bots, as they do not pass our internal filters.
 
