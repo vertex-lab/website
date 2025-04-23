@@ -15,10 +15,10 @@ No hidden costs, pay exactly what you consume.
 {{% steps %}}
 
 ### Request
-Generate the request, sign it with a `pubkey` and send it to our relay.
+Generate the request, sign it with a `pubkey` and send it to our relay
 
 ### Pay
-We deduct credits from the internal `pubkey`'s balance based on the selected [sorting algorithm](/docs/algos).
+We deduct credits from the internal `pubkey`'s balance based on the selected [sorting algorithm](/docs/algos)
 
 ### Response
 Receive the response, and use it in your application
