@@ -4,7 +4,7 @@ breadcrumbs: true
 weight: 15
 ---
 
-All of our services accept an optional sort parameter, that allows control over ranking behavior to optimize for performance, robustness, or personalization.
+All of our services accept an optional `sort` parameter, that allows control over ranking behavior to optimize for performance, robustness, or personalization.  
 These are the sorting algorithms currently supported
 
 - `followerCount`:  
@@ -25,7 +25,7 @@ A variation of [Personalized Pagerank](https://ieeexplore.ieee.org/stamp/stamp.j
 | `personalizedPagerank` | Slower <br> ~600ms | 10  | Highest | personal |
   
 - **Cost**:  
-The cost for each request, measured in credits. For the $ prices, [check out our pricing](/pricing).
+The cost for each request, measured in Vertex credits. For the $ prices, [check out our pricing](/pricing).
   
 - **Integrity**:  
 How resistant the algorithm is to manipulation. High integrity indicate that it's hard for attackers to artificially boost their ranking.
