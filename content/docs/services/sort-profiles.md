@@ -6,7 +6,7 @@ weight: 30
 This service sorts a provided list of pubkeys using the specified algorithm.
 
 Example use-cases:
-
+ - Batched ranking of pubkeys
  - Sorting comments under a note
  - Sorting zaps in a zap list
  - Ranking pubkeys' content
