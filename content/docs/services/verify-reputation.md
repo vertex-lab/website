@@ -33,28 +33,18 @@ Sorting algorithms can be found [here](/docs/algos).
 
 #### Example nak command
 ```
-nak event -k 5312 --tag param="source;04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9" --tag param="sort;personalizedPagerank" --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" wss://relay.vertexlab.io
+nak event -k 5312 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" wss://relay.vertexlab.io
 ```
 
 #### Example request event
 
 ```json
 {
-  "id": "07f071aa6945df0ed9c830314b99f5ea41afed3563efa193f712487d9e846d58",
+  "id": "56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017efe712b37e8fcb0c",
   "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
-  "created_at": 1742485108,
+  "created_at": 1745933480,
   "kind": 5312,
   "tags": [
-    [
-      "param",
-      "source",
-      "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9"
-    ],
-    [
-      "param",
-      "sort",
-      "personalizedPagerank"
-    ],
     [
       "param",
       "target",
@@ -62,40 +52,53 @@ nak event -k 5312 --tag param="source;04c915daefee38317fa734444acee390a8269fe581
     ],
   ],
   "content": "",
-  "sig": "0cd00a0bca17eb89413f84d4e12d69ae8de2bb9fd1c61f7b6c33e4367135c32cebcd4dfa33cea25f28aa9c68854a50650013bcc4e83f8074ada3da4654b83967"
+  "sig": "ba113d347aa064603193751fd74862e2e8490ba1f1dbed3a1e660212d80a4adcbed0983e3c5f0363d814311c9713db701e72379f1c3c2579a045fc817d8a4112"
 }
 ```
 
 ### Response
 
-The response is a standard DVM response which includes the corresponding `e` and `p` tags.
-The `content` field is a JSON-stringified array of objects formatted as:
+#### Tags
+
+| Tag     | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| `e`     | The event ID of the request                                                 |
+| `p`     | The pubkey that signed the request                                          |
+| `sort`  | The sorting algorithm specified in the request                              |
+| `source`| The source specified in the request (present **only if** `sort=personalizedPagerank`) |
+| `nodes` | The number of nodes in the graph at the time the request was made           |
+
+#### Content
+
+The `content` field is a JSON-stringified array of objects, each formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`pubkey`, `rank`} | {string, float} | a nostr hex pubkey along with its rank |
+| `pubkey` | string | a nostr hex pubkey|
+| `rank` | float | the rank computed with the `sort` algorithm|
 
-The first object is always the `pubkey` and `rank` of the `target`, as well as its `follows` and `followers` counts (`int`). The follower count does not take into account spammers or bots, as they do not pass our internal filters.
 
-The subsequent pairs are the `pubkeys` and `ranks` of the top followers of `target` (descending order), determined by the algorithm specified in the `sort` parameter.
+The first object always contains the `pubkey` and `rank` of the `target`, as well as its `follows` and `followers` counts (`int`).
+
+The subsequent pairs are the `pubkey`s and `rank`s of the top followers of `target`, sorted in descending order.
 
 #### Example nak command
 ```
-nak req -k 6312 -k 7000 --tag e=07f071aa6945df0ed9c830314b99f5ea41afed3563efa193f712487d9e846d58 wss://relay.vertexlab.io
+nak req -k 6312 -k 7000 --tag e=56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017efe712b37e8fcb0c wss://relay.vertexlab.io
 ```
 
 #### Example response event
 
 ```json
 {
-  "id": "2ad269a0160b64682be86fd5f3b9d0b48587b450f7c1c6375573eddec60eb2d5",
+  "id": "c9670c7cb3ed65bdd10319ebf31f1905007965226b97e3b5cd2d61b528b575af",
   "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
-  "created_at": 1742485108,
+  "created_at": 1745933480,
   "kind": 6312,
   "tags": [
     [
       "e",
-      "07f071aa6945df0ed9c830314b99f5ea41afed3563efa193f712487d9e846d58"
+      "56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017efe712b37e8fcb0c"
     ],
     [
       "p",
@@ -103,15 +106,15 @@ nak req -k 6312 -k 7000 --tag e=07f071aa6945df0ed9c830314b99f5ea41afed3563efa193
     ],
     [
       "sort",
-      "personalizedPagerank"
+      "globalPagerank"
     ],
     [
-      "source",
-      "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9"
+      "nodes",
+      "317328"
     ]
   ],
-  "content":"[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.00034409542913234554,\"follows\":535, \"followers\":1978},{\"pubkey\":\"04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9\",\"rank\":0.2365482693862695},{\"pubkey\":\"32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245\",\"rank\":0.002478020571038372},{\"pubkey\":\"6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93\",\"rank\":0.0023286458111049426},{\"pubkey\":\"472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e\",\"rank\":0.002203277709017957},{\"pubkey\":\"3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d\",\"rank\":0.002197942896163192}]",
-  "sig": "d96ac2b173fcf693382b104d8276b94ee5a3ee32788fbc37d06367bfecf409f84dd1219c449d696bacce314be4a8bc01f3cd6c062cce3c98613a92f2aaa63c01"
+  "content":"[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.00018008434745346786,\"follows\":550,\"followers\":2102},{\"pubkey\":\"32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245\",\"rank\":0.0038190735362639222},{\"pubkey\":\"04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9\",\"rank\":0.0023781006037430445},{\"pubkey\":\"3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d\",\"rank\":0.0020976712437000707},{\"pubkey\":\"472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e\",\"rank\":0.0014937791227049887},{\"pubkey\":\"3f770d65d3a764a9c5cb503ae123e62ec7598ad035d836e2a810f3877a745b24\",\"rank\":0.0014543235565134729}]",
+  "sig":"a16fbad8d49768fe8c764b12221bf823f2095d333ac25bc7d8766b6dc42c26f3ce5e365843ca9fbb36eb38fc2b277b4e33ce683610c199f23f7b90c462577f91"
 }
 ```
 
@@ -121,29 +124,29 @@ Formatted `content` JSON:
 [
   	{
 		"pubkey": "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
-		"rank": 0.00034409542913234554,
-        "follows": 535,
-        "followers": 1978
-	},
-	{
-		"pubkey": "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9",
-		"rank": 0.2365482693862695
+		"rank": 0.00018008434745346786,
+        "follows": 550,
+        "followers": 2102
 	},
 	{
 		"pubkey": "32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245",
-		"rank": 0.002478020571038372
+		"rank": 0.0038190735362639222
 	},
 	{
-		"pubkey": "6e468422dfb74a5738702a8823b9b28168abab8655faacb6853cd0ee15deee93",
-		"rank": 0.0023286458111049426
-	},
-	{
-		"pubkey": "472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e",
-		"rank": 0.002203277709017957
+		"pubkey": "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9",
+		"rank": 0.0023781006037430445
 	},
 	{
 		"pubkey": "3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d",
-		"rank": 0.002197942896163192
+		"rank": 0.0020976712437000707
+	},
+	{
+		"pubkey": "472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e",
+		"rank": 0.0014937791227049887
+	},
+	{
+		"pubkey": "3f770d65d3a764a9c5cb503ae123e62ec7598ad035d836e2a810f3877a745b24",
+		"rank": 0.0014543235565134729
 	},
 ]
 ```
@@ -158,18 +161,18 @@ Formatted `content` JSON:
   "created_at": 1738635799,
   "tags": [
       [
-        "status",
-        "error",
-        "badly formatted key: npub1"
-      ],
-      [
         "e",
         "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49"
       ],
       [
         "p",
         "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
-      ]
+      ],
+      [
+        "status",
+        "error",
+        "badly formatted key: npub1"
+      ],
   ],
   "content": "",
   "sig": "6318c7ce6c57dd85779faadc4fed7733a1e50bd46205d52c96e535648dd2dd07e573e8d1fdef496d27014c80d1f2f604cb5337744d24000c00dde485ccdcf48c"
