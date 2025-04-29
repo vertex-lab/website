@@ -63,7 +63,7 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 | `e`     | The event ID of the request                                                 |
 | `p`     | The pubkey that signed the request                                          |
 | `sort`  | The sorting algorithm specified in the request                              |
-| `source`| The source specified in the request (present **only if** `sort=personalizedPagerank`) |
+| `source`| The source specified in the request (present only if `sort=personalizedPagerank`) |
 | `nodes` | The number of nodes in the graph at the time the request was made           |
 
 #### Content
