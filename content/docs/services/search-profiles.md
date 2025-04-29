@@ -23,7 +23,7 @@ Example use-cases:
 | `search` _(required)_  | string | The search terms | - | 1 |
 | `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
 | `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `limit` | int | Maximum number of results returned in a response | `5` | `100` |
+| `limit` | int | Maximum number of results returned | `5` | `100` |
 
 The `search` must be longer than three characters.  
 Sorting algorithms can be found [here](/docs/algos).
@@ -56,19 +56,35 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 
 ### Response
 
-The response is a standard DVM response which includes the corresponding `e` and `p` tags. 
-The `content` field is a JSON-stringified array of objects formatted as:
+#### Tags
+
+| Tag     | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| `e`     | The event ID of the request                                                 |
+| `p`     | The pubkey that signed the request                                          |
+| `sort`  | The sorting algorithm specified in the request                              |
+| `source`| The source specified in the request (present **only if** `sort=personalizedPagerank`) |
+| `nodes` | The number of nodes in the graph at the time the request was made           |
+
+#### Content
+
+The `content` field is a JSON-stringified array of objects, each formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`pubkey`, `rank`} | {string, float} | a nostr hex pubkey along with its rank |
+| `pubkey` | string | a nostr hex pubkey |
+| `rank` | float | the rank computed with the `sort` algorithm |
 
-Pubkeys are sorted in descending order by their ranks which are computed using the following formula
-```
-rank = |search_rank| ^ 3 * reputation_rank
-```
+Pubkeys are sorted in descending order by their `rank`.  
+The `rank` is a combination of two components:
+- `search_rank`: measures how well the search term matches the profile.
+- `reputation_rank`: determined by the `sort` parameter.  
 
-The `search_rank` is determined by the `bm25` built-in function in SQLite, while `reputation_rank` is determined by the `sort` parameter in the DVM request.
+The combined rank is calculated with the formula:
+
+```
+rank = |search_rank|³ × reputation_rank
+```
 
 To learn more you can [check out our code](https://github.com/vertex-lab/relay/blob/master/pkg/dvm/response.go).
 
@@ -97,6 +113,10 @@ nak req --kind 6315 --kind 7000 --tag e=7a00585895879e0c73d5e7db3364d66cc649a591
     [
       "sort",
       "globalPagerank"
+    ],
+    [
+      "nodes",
+      "317238"
     ],
   ],
   "content":"[{\"pubkey\":\"82341f882b6eabcd2ba7f1ef90aad961cf074af15b9ef44a09f9d2a8fbfbe6a2\",\"rank\":8.224848486131593},{\"pubkey\":\"c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0\",\"rank\":2.120725804894317},{\"pubkey\":\"a1fc5dfd7ffcf563c89155b466751b580d115e136e2f8c90e8913385bbedb1cf\",\"rank\":0.2690585544819},{\"pubkey\":\"c5fb6ecc876e0458e3eca9918e370cbcd376901c58460512fe537a46e58c38bb\",\"rank\":0.14113029299502666},{\"pubkey\":\"5e5fc1434c928bcdcba6f801859d5238341093291980fd36e33b7416393d5a2c\",\"rank\":0.12754991708985827}]",

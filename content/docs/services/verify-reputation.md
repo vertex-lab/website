@@ -24,7 +24,7 @@ Example use-cases:
 | `target` _(required)_  | string| Pubkey whose reputation is being requested | - | 1 |
 | `sort`| string | Algorithm used to sort results | `globalPagerank` | 1 |
 | `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `limit` | int | Maximum number of results returned in a response | `5` | `100` |
+| `limit` | int | Maximum number of results returned | `5` | `100` |
 
 Pubkeys can be in either hex or npub format.  
 Sorting algorithms can be found [here](/docs/algos).
@@ -80,7 +80,7 @@ The `content` field is a JSON-stringified array of objects, each formatted as:
 
 The first object always contains the `pubkey` and `rank` of the `target`, as well as its `follows` and `followers` counts (`int`).
 
-The subsequent pairs are the `pubkey`s and `rank`s of the top followers of `target`, sorted in descending order.
+The subsequent pairs are the `pubkey`s and `rank`s of the top followers of `target`, sorted in descending order by their `rank`.
 
 #### Example nak command
 ```

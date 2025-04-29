@@ -24,7 +24,7 @@ Example use-cases:
 | `target`  _(required)_  | string | Pubkey whose ranking is being requested | - | 1000 |
 | `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
 | `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `limit` | int | Maximum number of results returned in a response | `5` | `1000` |
+| `limit` | int | Maximum number of results returned | `5` | `1000` |
 
 Multiple `target` parameters SHOULD be supplied, as npubs or hex pubkeys.  
 Sorting algorithms can be found [here](/docs/algos).
@@ -67,14 +67,26 @@ nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 
 ### Response
 
-The response is a standard DVM response which includes the corresponding `e` and `p` tags. 
-The `content` field is a JSON-stringified array of objects formatted as:
+#### Tags
+
+| Tag     | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| `e`     | The event ID of the request                                                 |
+| `p`     | The pubkey that signed the request                                          |
+| `sort`  | The sorting algorithm specified in the request                              |
+| `source`| The source specified in the request (present **only if** `sort=personalizedPagerank`) |
+| `nodes` | The number of nodes in the graph at the time the request was made           |
+
+#### Content
+
+The `content` field is a JSON-stringified array of objects, each formatted as:
 
 | Properties | Types | Description |
 |-----|-----|-----|
-| {`pubkey`, `rank`} | {string, float} | a nostr hex pubkey along with its rank |
+| `pubkey` | string | a nostr hex pubkey|
+| `rank` | float | the rank computed with the `sort` algorithm|
 
-Pubkeys are sorted in decreasing order by their ranks.
+Pubkeys are sorted in descending order by their `rank`. 
 
 #### Example nak command
 ```
@@ -101,6 +113,10 @@ nak req -k 6314 -k 7000 --tag e=f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa7
     [
       "sort",
       "globalPagerank"
+    ],
+    [
+      "nodes",
+      "317328"
     ],
   ],
  "content":"[{\"pubkey\":\"726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11\",\"rank\":0.00016816930295038342},{\"pubkey\":\"f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2\",\"rank\":0.00008207271004088555},{\"pubkey\":\"d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387\",\"rank\":0}]",
