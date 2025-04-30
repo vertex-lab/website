@@ -44,7 +44,7 @@ Each entity (in our case, a pubkey) is given a bucket that holds a certain numbe
 
 ![Token Bucket Algorithm Visualized](/images/token_bucket.png)
 
-The beauty of this approach is its simplicity: it's easy to implement and customize.
+The beauty of this approach is its simplicity: it's easy to implement and customize.  
 In our design, the **refill rate depends on the pubkey's rank**.
 
 Now, how do we compute these ranks?  
