@@ -56,6 +56,8 @@ To prevent this, we add a second layer of rate limiting:
 We limit how many unknown pubkeys a single IP address can add to the queue over time.
 While IPs are relatively cheap to rotate, they're still expensive enough to tip the balance in favor of defenders.
 
+![](/images/reputation_rate_limiting_flow.png)
+
 Let's crunch some numbers. Let's limit the number of unknown pubkeys an IP can send to the ranking queue in a day to 100.
 The attacker needs 10 IPs to fill one DVM request, which costs (less than) 0.009 usd at current rates.  
 If we assume that the cost of renting an IP for the shortest duration is 1¢, then the cost of launching an attack using 10 IPs would be 10 × 1¢ = 10¢.
