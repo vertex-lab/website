@@ -62,11 +62,11 @@ If we assume that the cost of renting an IP for the shortest duration is 1¢, th
 
 This results in a cost asymmetry between attacking and defending that's 100 times greater, strongly favoring the defender.
 
-## The Code:
+## The Code
 
 At [this link](https://github.com/pippellia-btc/rely/tree/main/examples/wot) you can find a minimal implementation with limited dependencies of the rate-limiting system. Feel free to review, modify, and integrate the code into your own project. It is designed to be flexible and can be adapted to a variety of use cases where rate limiting is required to prevent abuse.
 
-## Quick recap:
+## Quick Recap
 
 Our design enforces two budgets:
 - **IP budget**: limits how many unknown pubkeys each IP can send to the ranking queue.
