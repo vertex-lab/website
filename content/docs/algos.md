@@ -1,7 +1,7 @@
 ---
 title: Algorithms
 breadcrumbs: true
-weight: 15
+weight: 10
 ---
 
 All of our services accept an optional `sort` parameter, that allows control over ranking behavior to optimize for performance, robustness, or personalization.  

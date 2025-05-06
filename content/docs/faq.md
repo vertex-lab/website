@@ -6,7 +6,7 @@ weight: 5
 
 {{% details title="What is Vertex?" %}}
 
-Vertex is Web of Trust as a Service built on top of the nostr social graph. It provides reputation scores to offer personalized discovery and recommendations, as well as protection against impersonations and DoS attacks.
+Vertex is Web of Trust as a Service built on top of the nostr social graph. It provides reputation scores to offer personalized discovery and recommendations, as well as protection against impersonations and spam.
 
 {{% /details %}}
 
@@ -79,6 +79,26 @@ We are currently building client-side validation schemes so your users will be a
 {{% details title="Does Vertex store any personal data?" closed="true"%}}
 
 Vertex only processes publicly available data from the Nostr network. We respect user privacy and will honor any legitimate requests for content removal.
+
+{{% /details %}}
+
+<a id="credits"></a>
+{{% details title="How many credits do I have left?" closed="false"%}}
+
+Connect to our relay at `wss://relay.vertexlab.io` and authenticate using NIP-42.  
+
+Then request `kind:22243` to get your credit balance.
+
+```json
+{
+    "kind": 22243,
+    "tags": [
+        ["credits", "9847"],
+        ["lastRequest", "1746466043"]
+    ],
+    // ...
+}
+```
 
 {{% /details %}}
 
