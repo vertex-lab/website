@@ -15,13 +15,13 @@ No hidden costs, pay exactly what you consume.
 {{% steps %}}
 
 ### Request
-Generate the request, sign it with a `pubkey` and send it to our relay
+Create a request, sign it with a `pubkey`, and send it to our relay
 
 ### Pay
-We deduct credits from the internal `pubkey`'s balance based on the selected [sorting algorithm](/docs/algos)
+We subtract credits from the `pubkey`'s balance based on the selected [sorting algorithm](/docs/algos)
 
 ### Response
-Receive the response, and use it in your application
+You get the response and use it in your app
 
 {{% /steps %}}
 
@@ -57,7 +57,7 @@ Same services across all tiers. Just more value as you top up.
     </div>
     <div class="pricing-card">
       <h2>Scale</h2>
-      <p>Unlock the best value — Go premium with $1000+ top-ups and maximize your budget</p>
+      <p>Unlock the best value — go premium with $1000+ top-ups and maximize your budget</p>
       <div class="price"><strong>$0.005</strong> credit</div>
         <a class="price-button" href="https://buy.tryspeed.com/plink_live_m9h5ptc8nDhgaZ8m" target="_blank">Buy Now</a>
         </div>

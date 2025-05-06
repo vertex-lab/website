@@ -26,7 +26,7 @@ Vertex continuously processes profile events from the nostr network and applies 
 
 {{% /details %}}
 
-{{% details title="How often do you update the trust scores?" closed="true"%}}
+{{% details title="How often do you update the reputational scores?" closed="true"%}}
 
 Thanks to our advanced algorithms, we calculate the scores in real-time using the latest available data from a wide array of relays.
 
