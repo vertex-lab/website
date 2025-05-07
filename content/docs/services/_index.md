@@ -11,6 +11,6 @@ We are proposing new specifications that cover the range of our [NIP-90 Data Ven
 {{< cards cols="1">}}
     {{< card link="verify-reputation" title="Verify Reputation" icon="badge-check" >}}
     {{< card link="recommend-follows" title="Recommend Follows" icon="sparkles" >}}
-    {{< card link="sort-profiles" title="Sort Profiles" icon="sort-descending" >}}
+    {{< card link="rank-profiles" title="Rank Profiles" icon="sort-descending" >}}
     {{< card link="search-profiles" title="Search Profiles" icon="search" tag="New" tagType="info">}}
 {{< /cards >}}

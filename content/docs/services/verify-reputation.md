@@ -11,6 +11,11 @@ Example use-cases:
   - Showing relevant followers of that npub
   - Reducing the probability of successful impersonators
 
+{{< callout type="info" >}}
+Need the ranks of many pubkeys?  
+Try [Rank Profiles](/docs/services/rank-profiles) for a fast, batched solution.
+{{< /callout >}}
+
 ### Kinds
 
  - Request: 5312

@@ -1,5 +1,5 @@
 ---
-title: Sort Profiles
+title: Rank Profiles
 weight: 30
 ---
 
@@ -9,7 +9,11 @@ Example use-cases:
  - Batched ranking of pubkeys
  - Sorting comments under a note
  - Sorting zaps in a zap list
- - Ranking pubkeys' content
+
+{{< callout type="info" >}}
+Need more reputational metrics?  
+Try [Verify Reputation](/docs/services/verify-reputation) for a more in-depth solution.
+{{< /callout >}}
 
 ### Kinds
 
