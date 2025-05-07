@@ -15,7 +15,9 @@ Example use-cases:
  - Response: 6313
  - Error: 7000
 
-### Request parameters
+### Request
+
+#### Parameters
 
 | Param | Type | Description | Default Value | Max |
 |-----|-----|-----|-----|-----|
@@ -26,14 +28,12 @@ Example use-cases:
 Pubkeys can be in either hex or npub format.  
 Sorting algorithms can be found [here](/docs/algos).
 
-### Request
-
 #### Example nak command
 ```
 nak event -k 5313 --tag param="sort;personalizedPagerank" --tag param="source;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" wss://relay.vertexlab.io
 ```
 
-#### Example request event
+#### Example request
 
 ```json
 {
@@ -86,7 +86,7 @@ The recommended pubkeys don't include the `source` or its follows, and are sorte
 nak req -k 6313 -k 7000 --tag e=a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4 wss://relay.vertexlab.io
 ```
 
-#### Example response event
+#### Example response
 
 ```json
 {
@@ -148,15 +148,21 @@ Formatted `content` JSON:
 ]
 ```
 
+### Error
 
-#### Example error response
+#### Tags
+
+| Tag     | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| `e`     | The event ID of the request                                                 |
+| `p`     | The pubkey that signed the request                                          |
+| `status`| The error type and error message                              |
+
+#### Example error
 
 ```json
 {
   "kind": 7000,
-  "id": "96f6eec0b3e410db91b85bee714740ec76ec64a9eb60a5503fee4dfc02047c1a",
-  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
-  "created_at": 1738635799,
   "tags": [
       [
         "e",
@@ -169,10 +175,9 @@ Formatted `content` JSON:
       [
         "status",
         "error",
-        "invalid source: npub1"
+        "invalid source: this is not a valid public key"
       ],
   ],
-  "content": "",
-  "sig": "6318c7ce6c57dd85779faadc4fed7733a1e50bd46205d52c96e535648dd2dd07e573e8d1fdef496d27014c80d1f2f604cb5337744d24000c00dde485ccdcf48c"
+  // ...
 }
 ```

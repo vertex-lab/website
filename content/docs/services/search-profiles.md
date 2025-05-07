@@ -16,7 +16,9 @@ Example use-cases:
  - Response: 6315
  - Error: 7000
 
-### Request parameters
+### Request
+
+#### Parameters
 
 | Param | Type | Description | Default Value | Max |
 |-----|-----|-----|-----|-----|
@@ -28,14 +30,12 @@ Example use-cases:
 The `search` must be longer than three characters.  
 Sorting algorithms can be found [here](/docs/algos).
 
-### Request
-
 #### Example nak command
 ```
 nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 ```
 
-#### Example request event
+#### Example request
 ```json
 {
   "id": "7a00585895879e0c73d5e7db3364d66cc649a591aa422bfdfb14801642cff3e0",
@@ -93,7 +93,7 @@ To learn more you can [check out our code](https://github.com/vertex-lab/relay/b
 nak req --kind 6315 --kind 7000 --tag e=7a00585895879e0c73d5e7db3364d66cc649a591aa422bfdfb14801642cff3e0 wss://relay.vertexlab.io
 ```
 
-#### Example response event
+#### Example response
 
 ```json
 {
@@ -151,14 +151,21 @@ Formatted `content` JSON:
 ]
 ```
 
-#### Example error response
+### Error
+
+#### Tags
+
+| Tag     | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| `e`     | The event ID of the request                                                 |
+| `p`     | The pubkey that signed the request                                          |
+| `status`| The error type and error message                              |
+
+#### Example error
 
 ```json
 {
   "kind": 7000,
-  "id": "96f6eec0b3e410db91b85bee714740ec76ec64a9eb60a5503fee4dfc02047c1a",
-  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
-  "created_at": 1738635799,
   "tags": [
       [
         "e",
@@ -174,7 +181,6 @@ Formatted `content` JSON:
         "invalid search: the search term must be longer than three characters"
       ],
   ],
-  "content": "",
-  "sig": "6318c7ce6c57dd85779faadc4fed7733a1e50bd46205d52c96e535648dd2dd07e573e8d1fdef496d27014c80d1f2f604cb5337744d24000c00dde485ccdcf48c"
+  // ...
 }
 ```

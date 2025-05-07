@@ -21,7 +21,9 @@ Try [Verify Reputation](/docs/services/verify-reputation) for a more in-depth so
  - Response: 6314
  - Error: 7000
 
-### Request parameters
+### Request
+
+#### Parameters
 
 | Param | Type | Description | Default Value | Max |
 |-----|-----|-----|-----|-----|
@@ -33,14 +35,12 @@ Try [Verify Reputation](/docs/services/verify-reputation) for a more in-depth so
 Multiple `target` parameters SHOULD be supplied, as npubs or hex pubkeys.  
 Sorting algorithms can be found [here](/docs/algos).
 
-### Request
-
 #### Example nak command
 ```
 nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" --tag param="target;f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2" --tag param="target;d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387" wss://relay.vertexlab.io
 ```
 
-#### Example request event
+#### Example request
 ```json
 {
   "id": "1ded5cc51ffc9a77b11e20bc9ed1c84ae3bdfa557b30dafc97e9982641b17980",
@@ -97,7 +97,7 @@ Pubkeys are sorted in descending order by their `rank`.
 nak req -k 6314 -k 7000 --tag e=f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa70f5a642f074e525c wss://relay.vertexlab.io
 ```
 
-#### Example response event
+#### Example response
 
 ```json
 {
@@ -147,14 +147,21 @@ Formatted `content` JSON:
 ]
 ```
 
-#### Example error response
+### Error
+
+#### Tags
+
+| Tag     | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| `e`     | The event ID of the request                                                 |
+| `p`     | The pubkey that signed the request                                          |
+| `status`| The error type and error message                              |
+
+#### Example error
 
 ```json
 {
   "kind": 7000,
-  "id": "96f6eec0b3e410db91b85bee714740ec76ec64a9eb60a5503fee4dfc02047c1a",
-  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
-  "created_at": 1738635799,
   "tags": [
       [
         "e",
@@ -167,10 +174,9 @@ Formatted `content` JSON:
       [
         "status",
         "error",
-        "badly formatted key: npub1"
+        "invalid target: this is not a valid public key"
       ],
   ],
-  "content": "",
-  "sig": "6318c7ce6c57dd85779faadc4fed7733a1e50bd46205d52c96e535648dd2dd07e573e8d1fdef496d27014c80d1f2f604cb5337744d24000c00dde485ccdcf48c"
+  // ...
 }
 ```
