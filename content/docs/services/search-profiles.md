@@ -150,3 +150,31 @@ Formatted `content` JSON:
     },
 ]
 ```
+
+#### Example error response
+
+```json
+{
+  "kind": 7000,
+  "id": "96f6eec0b3e410db91b85bee714740ec76ec64a9eb60a5503fee4dfc02047c1a",
+  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
+  "created_at": 1738635799,
+  "tags": [
+      [
+        "e",
+        "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49"
+      ],
+      [
+        "p",
+        "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+      ],
+      [
+        "status",
+        "error",
+        "invalid search: the search term must be longer than three characters"
+      ],
+  ],
+  "content": "",
+  "sig": "6318c7ce6c57dd85779faadc4fed7733a1e50bd46205d52c96e535648dd2dd07e573e8d1fdef496d27014c80d1f2f604cb5337744d24000c00dde485ccdcf48c"
+}
+```
