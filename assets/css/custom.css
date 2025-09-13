@@ -13,11 +13,6 @@ body {
   background-color: var(--background-color);
 }
 
-/* .hextra-code-block pre {
-  background-color: var(--code-background-color) !important;
-  color: #404040  !important;
-} */
-
 .custom-image {
   margin-top: 20px;
 }
@@ -99,22 +94,6 @@ body, .content {
   padding: 22px 19px;
   align-items: center;
   text-align: center;
-}
-
-.tag-badge {
-  font-weight:500;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 10px;
-  margin-right: 10px;
-  background-color: #FEF3C6;
-  color: #cbba74;
-  border: #cbba74;
-  font-size: 0.75rem;
-  padding: 5px 9px;
-  border-radius: 999px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .pricing-card h2 {
