@@ -2,14 +2,16 @@
 toc: false
 ---
 
+<div class="hx-mt-6">
 {{< hextra/hero-headline >}}
   Developer Friendly Pricing
 {{< /hextra/hero-headline >}}
+</div>
 
-<div class="hx-mt-2 hx-mb-6">
-{{< hextra/hero-subtitle >}}
-No hidden costs, pay exactly what you consume.
-{{< /hextra/hero-subtitle >}}
+<div class="hx-mt-1 hx-mb-6">
+  {{< hextra/hero-subtitle >}}
+  No hidden costs, pay exactly what you consume.
+  {{< /hextra/hero-subtitle >}}
 </div>
 
 {{% steps %}}
