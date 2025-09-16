@@ -10,15 +10,15 @@ Example use-cases:
  - Searching profiles
  - Auto-completion when tagging someone
 
-### Kinds
+## Kinds
 
  - Request: `5315`
  - Response: `6315`
  - Error: `7000`
 
-### Request
+## Request
 
-#### Parameters
+### Parameters
 
 All parameters must be passed as *strings* in the tags of the Request event, with the following format:
 
@@ -36,12 +36,12 @@ All parameters must be passed as *strings* in the tags of the Request event, wit
 The `search` must be longer than three characters.  
 Sorting algorithms can be found [here](/docs/algos).
 
-#### Example nak command
+### Example nak command
 ```
 nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 ```
 
-#### Example request
+### Example request
 ```json
 {
   "id": "7a00585895879e0c73d5e7db3364d66cc649a591aa422bfdfb14801642cff3e0",
@@ -60,9 +60,9 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 }
 ```
 
-### Response
+## Response
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -72,7 +72,7 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 | `source`| The source specified in the request (present only if `sort=personalizedPagerank`) |
 | `nodes` | The number of nodes in the graph at the time the request was made           |
 
-#### Content
+### Content
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
@@ -94,12 +94,12 @@ rank = |search_rank|³ × reputation_rank
 
 To learn more you can [check out our code](https://github.com/vertex-lab/relay/blob/master/pkg/dvm/response.go).
 
-#### Example nak command
+### Example nak command
 ```
 nak req --kind 6315 --kind 7000 --tag e=7a00585895879e0c73d5e7db3364d66cc649a591aa422bfdfb14801642cff3e0 wss://relay.vertexlab.io
 ```
 
-#### Example response
+### Example response
 
 ```json
 {
@@ -157,9 +157,9 @@ Formatted `content` JSON:
 ]
 ```
 
-### Error
+## Error
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -167,7 +167,7 @@ Formatted `content` JSON:
 | `p`     | The pubkey that signed the request                                          |
 | `status`| The error type and error message                              |
 
-#### Example error
+### Example error
 
 ```json
 {

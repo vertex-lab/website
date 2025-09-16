@@ -9,15 +9,15 @@ This service returns a list of recommended pubkeys (the ones with highest rank e
 Example use-cases:
  - Offering users recommendations on accounts they may want to follow
 
-### Kinds
+## Kinds
 
  - Request: `5313`
  - Response: `6313`
  - Error: `7000`
 
-### Request
+## Request
 
-#### Parameters
+### Parameters
 
 All parameters must be passed as *strings* in the tags of the Request event, with the following format:
 
@@ -34,12 +34,12 @@ All parameters must be passed as *strings* in the tags of the Request event, wit
 Pubkeys can be in either hex or npub format.  
 Sorting algorithms can be found [here](/docs/algos).
 
-#### Example nak command
+### Example nak command
 ```
 nak event -k 5313 --tag param="sort;personalizedPagerank" --tag param="source;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" wss://relay.vertexlab.io
 ```
 
-#### Example request
+### Example request
 
 ```json
 {
@@ -64,9 +64,9 @@ nak event -k 5313 --tag param="sort;personalizedPagerank" --tag param="source;72
 }
 ```
 
-### Response
+## Response
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -76,7 +76,7 @@ nak event -k 5313 --tag param="sort;personalizedPagerank" --tag param="source;72
 | `source`| The source specified in the request (or the pubkey if not specified) |
 | `nodes` | The number of nodes in the graph at the time the request was made           |
 
-#### Content
+### Content
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
@@ -87,12 +87,12 @@ The `content` field is a JSON-stringified array of objects, each formatted as:
 
 The recommended pubkeys don't include the `source` or its follows, and are sorted in descending order by their `rank`.
 
-#### Example nak command
+### Example nak command
 ```
 nak req -k 6313 -k 7000 --tag e=a9e2f8beae38626d5301e277b444db4533bd6f3fd9802f7abb9a6584911409c4 wss://relay.vertexlab.io
 ```
 
-#### Example response
+### Example response
 
 ```json
 {
@@ -154,9 +154,9 @@ Formatted `content` JSON:
 ]
 ```
 
-### Error
+## Error
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -164,7 +164,7 @@ Formatted `content` JSON:
 | `p`     | The pubkey that signed the request                                          |
 | `status`| The error type and error message                              |
 
-#### Example error
+### Example error
 
 ```json
 {

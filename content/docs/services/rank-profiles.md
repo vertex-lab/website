@@ -15,15 +15,15 @@ Need more reputational metrics?
 Try [Verify Reputation](/docs/services/verify-reputation) for a more in-depth solution.
 {{< /callout >}}
 
-### Kinds
+## Kinds
 
  - Request: `5314`
  - Response: `6314`
  - Error: `7000`
 
-### Request
+## Request
 
-#### Parameters
+### Parameters
 
 All parameters must be passed as *strings* in the tags of the Request event, with the following format:
 
@@ -41,12 +41,12 @@ All parameters must be passed as *strings* in the tags of the Request event, wit
 Multiple `target` parameters should be supplied, as npubs or hex pubkeys.  
 Sorting algorithms can be found [here](/docs/algos).
 
-#### Example nak command
+### Example nak command
 ```
 nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" --tag param="target;f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2" --tag param="target;d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387" wss://relay.vertexlab.io
 ```
 
-#### Example request
+### Example request
 ```json
 {
   "id": "1ded5cc51ffc9a77b11e20bc9ed1c84ae3bdfa557b30dafc97e9982641b17980",
@@ -75,9 +75,9 @@ nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 }
 ```
 
-### Response
+## Response
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -87,7 +87,7 @@ nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 | `source`| The source specified in the request (present only if `sort=personalizedPagerank`) |
 | `nodes` | The number of nodes in the graph at the time the request was made           |
 
-#### Content
+### Content
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
@@ -98,12 +98,12 @@ The `content` field is a JSON-stringified array of objects, each formatted as:
 
 Pubkeys are sorted in descending order by their `rank`. 
 
-#### Example nak command
+### Example nak command
 ```
 nak req -k 6314 -k 7000 --tag e=f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa70f5a642f074e525c wss://relay.vertexlab.io
 ```
 
-#### Example response
+### Example response
 
 ```json
 {
@@ -153,9 +153,9 @@ Formatted `content` JSON:
 ]
 ```
 
-### Error
+## Error
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -163,7 +163,7 @@ Formatted `content` JSON:
 | `p`     | The pubkey that signed the request                                          |
 | `status`| The error type and error message                              |
 
-#### Example error
+### Example error
 
 ```json
 {
