@@ -16,32 +16,38 @@ Need the ranks of many pubkeys?
 Try [Rank Profiles](/docs/services/rank-profiles) for a fast, batched solution.
 {{< /callout >}}
 
-### Kinds
+## Kinds
 
  - Request: `5312`
  - Response: `6312`
  - Error: `7000`
 
-### Request
+## Request
 
-#### Parameters
+### Parameters
 
-| Param | Type | Description | Default Value | Max |
-|-----|-----|-----|-----| ----- |
-| `target` _(required)_  | string| Pubkey whose reputation is being requested | - | 1 |
-| `sort`| string | Algorithm used to sort results | `globalPagerank` | 1 |
-| `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `limit` | int | Maximum number of results returned | `5` | `100` |
+All parameters must be passed as *strings* in the tags of the Request event, with the following format:
+
+```json
+["param", "<name>", "<value>"] 
+```
+
+| Param | Description | Default Value | Max |
+|-----|-----|-----| ----- |
+| `target` _(required)_  | Pubkey whose reputation is being requested | - | one target |
+| `sort` | Algorithm used to sort results | `"globalPagerank"` | one sort |
+| `source` | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | one source |
+| `limit` | Maximum number of results returned | `"5"` | `"100"` |
 
 Pubkeys can be in either hex or npub format.  
 Sorting algorithms can be found [here](/docs/algos).
 
-#### Example nak command
+### Example nak command
 ```
 nak event -k 5312 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11" wss://relay.vertexlab.io
 ```
 
-#### Example request
+### Example request
 
 ```json
 {
@@ -61,9 +67,9 @@ nak event -k 5312 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 }
 ```
 
-### Response
+## Response
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -73,7 +79,7 @@ nak event -k 5312 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 | `source`| The source specified in the request (present only if `sort=personalizedPagerank`) |
 | `nodes` | The number of nodes in the graph at the time the request was made           |
 
-#### Content
+### Content
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
@@ -87,12 +93,12 @@ The first object always contains the `pubkey` and `rank` of the `target`, as wel
 
 The subsequent pairs are the `pubkey`s and `rank`s of the top followers of `target`, sorted in descending order by their `rank`.
 
-#### Example nak command
+### Example nak command
 ```
 nak req -k 6312 -k 7000 --tag e=56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017efe712b37e8fcb0c wss://relay.vertexlab.io
 ```
 
-#### Example response
+### Example response
 
 ```json
 {
@@ -156,9 +162,9 @@ Formatted `content` JSON:
 ]
 ```
 
-### Error
+## Error
 
-#### Tags
+### Tags
 
 | Tag     | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
@@ -166,7 +172,7 @@ Formatted `content` JSON:
 | `p`     | The pubkey that signed the request                                          |
 | `status`| The error type and error message                              |
 
-#### Example error
+### Example error
 
 ```json
 {

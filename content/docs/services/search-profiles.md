@@ -20,12 +20,18 @@ Example use-cases:
 
 #### Parameters
 
-| Param | Type | Description | Default Value | Max |
-|-----|-----|-----|-----|-----|
-| `search` _(required)_  | string | The search terms | - | 1 |
-| `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
-| `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `limit` | int | Maximum number of results returned | `5` | `100` |
+All parameters must be passed as *strings* in the tags of the Request event, with the following format:
+
+```json
+["param", "<name>", "<value>"] 
+```
+
+| Param | Description | Default Value | Max |
+|-----|-----|-----|-----|
+| `search` _(required)_  | The search terms | - | one search |
+| `sort` | Algorithm used to sort results | `"globalPagerank"` | one sort |
+| `source` | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | one source |
+| `limit` | Maximum number of results returned | `"5"` | `"100"` |
 
 The `search` must be longer than three characters.  
 Sorting algorithms can be found [here](/docs/algos).

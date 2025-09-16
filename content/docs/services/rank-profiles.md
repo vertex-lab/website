@@ -25,14 +25,20 @@ Try [Verify Reputation](/docs/services/verify-reputation) for a more in-depth so
 
 #### Parameters
 
-| Param | Type | Description | Default Value | Max |
-|-----|-----|-----|-----|-----|
-| `target`  _(required)_  | string | Pubkey whose ranking is being requested | - | 1000 |
-| `sort` | string | Algorithm used to sort results | `globalPagerank` | 1 |
-| `source` | string | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | 1 |
-| `limit` | int | Maximum number of results returned | `5` | `1000` |
+All parameters must be passed as *strings* in the tags of the Request event, with the following format:
 
-Multiple `target` parameters SHOULD be supplied, as npubs or hex pubkeys.  
+```json
+["param", "<name>", "<value>"] 
+```
+
+| Param | Description | Default Value | Max |
+|-----|-----|-----|-----|
+| `target`  _(required)_  | Pubkey whose ranking is being requested | - | 1000 targets |
+| `sort` | Algorithm used to sort results | `"globalPagerank"` | one sort |
+| `source` | Pubkey that provides the "point of view" for personalized algorithms | The pubkey signing the DVM request | one source |
+| `limit` | Maximum number of results returned | `"5"` | `"1000"` |
+
+Multiple `target` parameters should be supplied, as npubs or hex pubkeys.  
 Sorting algorithms can be found [here](/docs/algos).
 
 #### Example nak command
