@@ -44,8 +44,8 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 ### Example request
 ```json
 {
-  "id": "7a00585895879e0c73d5e7db3364d66cc649a591aa422bfdfb14801642cff3e0",
-  "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+  "id": "7a0058...cff3e0",
+  "pubkey": "79be66...f81798",
   "created_at": 1740754324,
   "kind": 5315,
   "tags": [
@@ -56,7 +56,7 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
     ],
   ],
   "content": "",
-  "sig": "e64ce664130301b86e055acc3fa3fb15fce058ff26bd156b80d4b7be2016d6baa49c21fa6f5b2481bbaaf66ac1f61cdd75bf4a9db175efb193bb72f45eb25bd9"
+  "sig": "e64ce6...b25bd9"
 }
 ```
 
@@ -69,7 +69,7 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 | `e`     | The event ID of the request                                                 |
 | `p`     | The pubkey that signed the request                                          |
 | `sort`  | The sorting algorithm specified in the request                              |
-| `source`| The source specified in the request (present only if `sort=personalizedPagerank`) |
+| `source`| The source specified in the request (present only if `sort="personalizedPagerank"`) |
 | `nodes` | The number of nodes in the graph at the time the request was made           |
 
 ### Content
@@ -103,18 +103,18 @@ nak req --kind 6315 --kind 7000 --tag e=7a00585895879e0c73d5e7db3364d66cc649a591
 
 ```json
 {
-  "id": "6fa47583e8e3c9d54de7d163b6b9f1d2ddc959c354979a3fe12bb3df07a0f9ed",
-  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
+  "id": "6fa475...a0f9ed",
+  "pubkey": "5fc48a...ccaeb4",
   "created_at": 1740754324,
   "kind": 6315,
   "tags": [
     [
       "e",
-      "7a00585895879e0c73d5e7db3364d66cc649a591aa422bfdfb14801642cff3e0"
+      "7a0058...cff3e0"
     ],
     [
       "p",
-      "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+      "79be66...f81798"
     ],
     [
       "sort",
@@ -126,7 +126,7 @@ nak req --kind 6315 --kind 7000 --tag e=7a00585895879e0c73d5e7db3364d66cc649a591
     ],
   ],
   "content":"[{\"pubkey\":\"82341f882b6eabcd2ba7f1ef90aad961cf074af15b9ef44a09f9d2a8fbfbe6a2\",\"rank\":8.224848486131593},{\"pubkey\":\"c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0\",\"rank\":2.120725804894317},{\"pubkey\":\"a1fc5dfd7ffcf563c89155b466751b580d115e136e2f8c90e8913385bbedb1cf\",\"rank\":0.2690585544819},{\"pubkey\":\"c5fb6ecc876e0458e3eca9918e370cbcd376901c58460512fe537a46e58c38bb\",\"rank\":0.14113029299502666},{\"pubkey\":\"5e5fc1434c928bcdcba6f801859d5238341093291980fd36e33b7416393d5a2c\",\"rank\":0.12754991708985827}]",
-  "sig": "bc856a8a93bc24a784ee53245fd6a99dfbd867f5c9f801b09ed499239d9e80c1390470f83882de169b1a30b40deb687349f4d671329fd12660132fedcf898458"
+  "sig": "bc856a...898458"
 }
 ```
 
@@ -135,23 +135,23 @@ Formatted `content` JSON:
 ```json
 [
     {
-      "pubkey": "82341f882b6eabcd2ba7f1ef90aad961cf074af15b9ef44a09f9d2a8fbfbe6a2",
+      "pubkey": "82341f...fbe6a2",
       "rank": 8.224848486131593
     },
     {
-      "pubkey": "c4eabae1be3cf657bc1855ee05e69de9f059cb7a059227168b80b89761cbc4e0",
+      "pubkey": "c4eaba...cbc4e0",
       "rank": 2.120725804894317
     },
     {
-      "pubkey": "a1fc5dfd7ffcf563c89155b466751b580d115e136e2f8c90e8913385bbedb1cf",
+      "pubkey": "a1fc5d...edb1cf",
       "rank": 0.2690585544819
     },
     {
-      "pubkey": "c5fb6ecc876e0458e3eca9918e370cbcd376901c58460512fe537a46e58c38bb",
+      "pubkey": "c5fb6e...8c38bb",
       "rank": 0.14113029299502666
     },
     {
-      "pubkey": "5e5fc1434c928bcdcba6f801859d5238341093291980fd36e33b7416393d5a2c",
+      "pubkey": "5e5fc1...3d5a2c",
       "rank": 0.12754991708985827
     },
 ]
@@ -175,16 +175,16 @@ Formatted `content` JSON:
   "tags": [
       [
         "e",
-        "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49"
+        "1cd2c7...5f7f49"
       ],
       [
         "p",
-        "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+        "79be66...f81798"
       ],
       [
         "status",
         "error",
-        "invalid search: the search term must be longer than three characters"
+        "the search term must be longer than three characters"
       ],
   ],
   // ...

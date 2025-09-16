@@ -49,29 +49,29 @@ nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 ### Example request
 ```json
 {
-  "id": "1ded5cc51ffc9a77b11e20bc9ed1c84ae3bdfa557b30dafc97e9982641b17980",
-  "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+  "id": "1ded5c...b17980",
+  "pubkey": "79be66...f81798",
   "created_at": 1740755732,
   "kind": 5314,
   "tags": [
     [
       "param",
       "target",
-      "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
+      "726a1e...1a1c11",
     ],
     [
       "param",
       "target",
-      "f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2",
+      "f683e8...7f5ef2",
     ],
     [
       "param",
       "target",
-      "d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387",
+      "d5ad3d...109387",
     ],
   ],
   "content": "",
-  "sig": "177f429bedc2ba7e32b631ae2abb2a68590b46abd18e3f2d13b4af5a3276c23d10a1f7123d0faa46d10378b4b7b5d192974457b2b2afd42ae67d47ce4c2d2050"
+  "sig": "177f42...2d2050"
 }
 ```
 
@@ -100,25 +100,25 @@ Pubkeys are sorted in descending order by their `rank`.
 
 ### Example nak command
 ```
-nak req -k 6314 -k 7000 --tag e=f15a41eee414a1242a174ed5f7389e7d83933147b3f0dfa70f5a642f074e525c wss://relay.vertexlab.io
+nak req -k 6314 -k 7000 --tag e=1ded5cc51ffc9a77b11e20bc9ed1c84ae3bdfa557b30dafc97e9982641b17980 wss://relay.vertexlab.io
 ```
 
 ### Example response
 
 ```json
 {
-  "id": "d7abd9710164c9982ee72c34f12bd49204384100e545d6a8ab96ad61097e175c",
-  "pubkey": "5fc48ac4765ff81e9c51014b9d2f2c91621370f4c6b5452a9c06456e4cccaeb4",
+  "id": "d7abd9...7e175c",
+  "pubkey": "5fc48a...ccaeb4",
   "created_at": 1740755732,
   "kind": 6314,
   "tags": [
     [
       "e",
-      "1ded5cc51ffc9a77b11e20bc9ed1c84ae3bdfa557b30dafc97e9982641b17980"
+      "1ded5c...b17980"
     ],
     [
       "p",
-      "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+      "79be66...f81798"
     ],
     [
       "sort",
@@ -139,15 +139,15 @@ Formatted `content` JSON:
 ```json
 [
 	{
-		"pubkey": "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
+		"pubkey": "726a1e...1a1c11",
 		"rank": 00016816930295038342
 	},
 	{
-		"pubkey": "f683e87035f7ad4f44e0b98cfbd9537e16455a92cd38cefc4cb31db7557f5ef2",
+		"pubkey": "f683e8...7f5ef2",
 		"rank": 0.00008207271004088555
 	},
 	{
-		"pubkey": "d5ad3d3115d9fa07500b06ccd0b9605d9888a206acba20a1e2e681ec29109387",
+		"pubkey": "d5ad3d...109387",
 		"rank": 0
 	},
 ]
@@ -171,11 +171,11 @@ Formatted `content` JSON:
   "tags": [
       [
         "e",
-        "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49"
+        "1cd2c7...5f7f49"
       ],
       [
         "p",
-        "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+        "79be66...f81798"
       ],
       [
         "status",

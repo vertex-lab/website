@@ -51,19 +51,19 @@ nak event -k 5312 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 
 ```json
 {
-  "id": "56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017efe712b37e8fcb0c",
-  "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+  "id": "56729c...8fcb0c",
+  "pubkey": "79be66...f81798",
   "created_at": 1745933480,
   "kind": 5312,
   "tags": [
     [
       "param",
       "target",
-      "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11"
+      "726a1e...1a1c11"
     ],
   ],
   "content": "",
-  "sig": "ba113d347aa064603193751fd74862e2e8490ba1f1dbed3a1e660212d80a4adcbed0983e3c5f0363d814311c9713db701e72379f1c3c2579a045fc817d8a4112"
+  "sig": "ba113d...8a4112"
 }
 ```
 
@@ -109,11 +109,11 @@ nak req -k 6312 -k 7000 --tag e=56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017
   "tags": [
     [
       "e",
-      "56729c03239d0d80d0641caa4561c55a061cd2f30f1fe017efe712b37e8fcb0c"
+      "56729c...8fcb0c"
     ],
     [
       "p",
-      "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+      "79be66...f81798"
     ],
     [
       "sort",
@@ -133,30 +133,30 @@ Formatted `content` JSON:
 
 ```json
 [
-  	{
-		"pubkey": "726a1e261cc6474674e8285e3951b3bb139be9a773d1acf49dc868db861a1c11",
+	{
+		"pubkey": "726a1e...1a1c11",
 		"rank": 0.00018008434745346786,
-        "follows": 550,
-        "followers": 2102
+		"follows": 550,
+		"followers": 2102
 	},
 	{
-		"pubkey": "32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245",
+		"pubkey": "32e182...68e245",
 		"rank": 0.0038190735362639222
 	},
 	{
-		"pubkey": "04c915daefee38317fa734444acee390a8269fe5810b2241e5e6dd343dfbecc9",
+		"pubkey": "04c915...fbecc9",
 		"rank": 0.0023781006037430445
 	},
 	{
-		"pubkey": "3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d",
+		"pubkey": "3bf0c6...fa459d",
 		"rank": 0.0020976712437000707
 	},
 	{
-		"pubkey": "472f440f29ef996e92a186b8d320ff180c855903882e59d50de1b8bd5669301e",
+		"pubkey": "472f44...69301e",
 		"rank": 0.0014937791227049887
 	},
 	{
-		"pubkey": "3f770d65d3a764a9c5cb503ae123e62ec7598ad035d836e2a810f3877a745b24",
+		"pubkey": "3f770d...745b24",
 		"rank": 0.0014543235565134729
 	},
 ]
@@ -180,11 +180,11 @@ Formatted `content` JSON:
   "tags": [
       [
         "e",
-        "1cd2c73f53e602ae6f081997962bd43c730a565053080ab27ef7efb7335f7f49"
+        "1cd2c7...5f7f49"
       ],
       [
         "p",
-        "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+        "79be66...f81798"
       ],
       [
         "status",
