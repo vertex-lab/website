@@ -18,9 +18,9 @@ Try [Rank Profiles](/docs/services/rank-profiles) for a fast, batched solution.
 
 ### Kinds
 
- - Request: 5312
- - Response: 6312
- - Error: 7000
+ - Request: `5312`
+ - Response: `6312`
+ - Error: `7000`
 
 ### Request
 

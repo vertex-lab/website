@@ -17,9 +17,9 @@ Try [Verify Reputation](/docs/services/verify-reputation) for a more in-depth so
 
 ### Kinds
 
- - Request: 5314
- - Response: 6314
- - Error: 7000
+ - Request: `5314`
+ - Response: `6314`
+ - Error: `7000`
 
 ### Request
 

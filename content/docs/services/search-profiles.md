@@ -12,9 +12,9 @@ Example use-cases:
 
 ### Kinds
 
- - Request: 5315
- - Response: 6315
- - Error: 7000
+ - Request: `5315`
+ - Response: `6315`
+ - Error: `7000`
 
 ### Request
 
