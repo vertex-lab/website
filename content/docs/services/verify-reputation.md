@@ -195,3 +195,117 @@ Formatted `content` JSON:
   // ...
 }
 ```
+
+## Example code
+
+### Go
+
+```golang
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/nbd-wtf/go-nostr"
+)
+
+func main() {
+	// step 1: connect to vertex
+	vertex := "wss://relay.vertexlab.io"
+	relay, err := nostr.RelayConnect(context.Background(), vertex)
+	if err != nil {
+		panic(err)
+	}
+
+	// step 2: generate the request and sign it with your vertex key.
+	// Be careful to store your key securely.
+	verifyReputation := &nostr.Event{
+		Kind:      5312,
+		CreatedAt: nostr.Now(),
+		Tags: nostr.Tags{
+			{"param", "target", "npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup"},
+			{"param", "limit", "7"},
+		},
+	}
+
+	err = verifyReputation.Sign("YOUR_SECRET_KEY")
+	if err != nil {
+		panic(err)
+	}
+
+	// step 3: publish the request to the vertex relay
+	err = relay.Publish(ctx, *verifyReputation)
+	if err != nil {
+		panic(err)
+	}
+
+	// step 3: fetch the response
+	filter := nostr.Filter{
+		Kinds: []int{6312, 7000},
+		Tags: nostr.TagMap{
+			"e": {verifyReputation.ID},
+		},
+	}
+
+	responses, err := relay.QueryEvents(ctx, filter)
+	if err != nil {
+		panic(err)
+	}
+
+	// extract the first response
+	response := <-responses
+
+	// step 4: use the response in your app
+	fmt.Printf("response: %v\n", response)
+}
+```
+
+### Javascript
+
+```javascript
+import { Relay, finalizeEvent } from 'nostr-tools';
+
+try {
+  // step 1: connect to vertex
+  const vertex = 'wss://relay.vertexlab.io';
+  const relay = new Relay(vertex);
+  await relay.connect();
+
+  // step 2: generate the request and sign it with your vertex key.
+  let verifyReputation = {
+    kind: 5312,
+    created_at: Math.floor(Date.now() / 1000),
+    tags: [
+      ['param', 'target', 'npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup'],
+      ['param', 'limit', '7'],
+    ],
+    content: '',
+  };
+
+  verifyReputation = finalizeEvent(verifyReputation, 'YOUR_SECRET_KEY')
+
+  // Step 3: publish the request
+  await relay.publish(verifyReputation);
+
+  // Step 4: fetch the response
+  const filter = {
+    kinds: [6312, 7000],
+    '#e': [verifyReputation.id],
+  };
+
+  const sub = relay.subscribe([filter], {
+      onevent(response) {
+        // step 5: use it in your app
+          console.log('response:', response);
+      },
+      oneose() {
+        resolve(events);
+        sub.close();
+      },
+  })
+
+} catch(err) {
+  console.log('error:', err)
+}
+```

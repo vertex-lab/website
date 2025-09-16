@@ -186,3 +186,121 @@ Formatted `content` JSON:
   // ...
 }
 ```
+
+## Example code
+
+### Go
+
+```golang
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/nbd-wtf/go-nostr"
+)
+
+func main() {
+	// step 1: connect to vertex
+	vertex := "wss://relay.vertexlab.io"
+	relay, err := nostr.RelayConnect(context.Background(), vertex)
+	if err != nil {
+		panic(err)
+	}
+
+	// step 2: generate the request and sign it with your vertex key.
+	// Be careful to store your key securely.
+	rankProfiles := &nostr.Event{
+		Kind:      5314,
+		CreatedAt: nostr.Now(),
+		Tags: nostr.Tags{
+			{"param", "target", "npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup"},
+      {"param", "target", "npub12rv5lskctqxxs2c8rf2zlzc7xx3qpvzs3w4etgemauy9thegr43sf485vg"},
+      {"param", "target", "npub1t3gd5yefglarhar4n6uh34uymvft4tgu8edk5465zzhtv4rrnd9sg7upxq"},
+      {"param", "target", "npub1zuuajd7u3sx8xu92yav9jwxpr839cs0kc3q6t56vd5u9q033xmhsk6c2uc"},
+		},
+	}
+
+	err = rankProfiles.Sign("YOUR_SECRET_KEY")
+	if err != nil {
+		panic(err)
+	}
+
+	// step 3: publish the request to the vertex relay
+	err = relay.Publish(ctx, *rankProfiles)
+	if err != nil {
+		panic(err)
+	}
+
+	// step 3: fetch the response
+	filter := nostr.Filter{
+		Kinds: []int{6314, 7000},
+		Tags: nostr.TagMap{
+			"e": {rankProfiles.ID},
+		},
+	}
+
+	responses, err := relay.QueryEvents(ctx, filter)
+	if err != nil {
+		panic(err)
+	}
+
+	// extract the first response
+	response := <-responses
+
+	// step 4: use the response in your app
+	fmt.Printf("response: %v\n", response)
+}
+```
+
+### Javascript
+
+```javascript
+import { Relay, finalizeEvent } from 'nostr-tools';
+
+try {
+  // step 1: connect to vertex
+  const vertex = 'wss://relay.vertexlab.io';
+  const relay = new Relay(vertex);
+  await relay.connect();
+
+  // step 2: generate the request and sign it with your vertex key.
+  let rankProfiles = {
+    kind: 5314,
+    created_at: Math.floor(Date.now() / 1000),
+    tags: [
+      ['param', 'target', 'npub176p7sup477k5738qhxx0hk2n0cty2k5je5uvalzvkvwmw4tltmeqw7vgup'],
+      ['param', 'target', 'npub12rv5lskctqxxs2c8rf2zlzc7xx3qpvzs3w4etgemauy9thegr43sf485vg'],
+      ['param', 'target', 'npub1t3gd5yefglarhar4n6uh34uymvft4tgu8edk5465zzhtv4rrnd9sg7upxq'],
+      ['param', 'target', 'npub1zuuajd7u3sx8xu92yav9jwxpr839cs0kc3q6t56vd5u9q033xmhsk6c2uc'],
+    ],
+    content: '',
+  };
+
+  rankProfiles = finalizeEvent(rankProfiles, 'YOUR_SECRET_KEY')
+
+  // Step 3: publish the request
+  await relay.publish(rankProfiles);
+
+  // Step 4: fetch the response
+  const filter = {
+    kinds: [6314, 7000],
+    '#e': [rankProfiles.id],
+  };
+
+  const sub = relay.subscribe([filter], {
+      onevent(response) {
+        // step 5: use it in your app
+          console.log('response:', response);
+      },
+      oneose() {
+        resolve(events);
+        sub.close();
+      },
+  })
+
+} catch(err) {
+  console.log('error:', err)
+}
+```
