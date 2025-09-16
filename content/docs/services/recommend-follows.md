@@ -80,7 +80,7 @@ nak event -k 5313 --tag param="sort;personalizedPagerank" --tag param="source;72
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
-| Properties | Types | Description |
+| Field | Type | Description |
 |-----|-----|-----|
 | `pubkey` | string | a nostr hex pubkey|
 | `rank` | float | the rank computed with the `sort` algorithm |

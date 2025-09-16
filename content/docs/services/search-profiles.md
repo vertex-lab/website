@@ -76,7 +76,7 @@ nak event --kind 5315 --tag param="search;jack" wss://relay.vertexlab.io
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
-| Properties | Types | Description |
+| Field | Type | Description |
 |-----|-----|-----|
 | `pubkey` | string | a nostr hex pubkey |
 | `rank` | float | the rank computed with the `sort` algorithm |

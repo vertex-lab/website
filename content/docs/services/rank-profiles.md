@@ -91,7 +91,7 @@ nak event -k 5314 --tag param="target;726a1e261cc6474674e8285e3951b3bb139be9a773
 
 The `content` field is a JSON-stringified array of objects, each formatted as:
 
-| Properties | Types | Description |
+| Field | Type | Description |
 |-----|-----|-----|
 | `pubkey` | string | a nostr hex pubkey|
 | `rank` | float | the rank computed with the `sort` algorithm|
