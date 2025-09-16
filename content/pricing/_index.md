@@ -31,12 +31,11 @@ You get the response and use it in your app
   Tiers
 {{< /hextra/hero-headline >}}
 
-<div class="hx-mt-2 hx-mb-6">
+<div class="hx-mt-1 hx-mb-6">
 {{< hextra/hero-subtitle >}}
 Same services across all tiers. Just more value as you top up.
 {{< /hextra/hero-subtitle >}}
 </div>
-
 
 <div class="pricing-container">
     <div class="pricing-card">
