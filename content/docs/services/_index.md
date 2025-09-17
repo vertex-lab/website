@@ -1,6 +1,6 @@
 ---
 title: Services
-weight: 15
+weight: 1
 breadcrumbs: true
 ---
 <div class="hx-mt-1 hx-mb-6">

@@ -1,7 +1,7 @@
 ---
 title: FAQs
 breadcrumbs: true
-weight: 5
+weight: 3
 ---
 
 {{% details title="What is Vertex?" %}}

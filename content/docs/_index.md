@@ -1,6 +1,6 @@
 ---
 title: Docs
-next: docs/faq
+next: docs/services
 breadcrumbs: true
 ---
 
@@ -8,6 +8,6 @@ breadcrumbs: true
   <head>
     <meta name="robots" content="noindex">
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=/docs/faq">
+    <meta http-equiv="refresh" content="0; url=/docs/services">
   </head>
 </html>
