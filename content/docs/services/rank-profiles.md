@@ -189,8 +189,9 @@ Formatted `content` JSON:
 
 ## Example code
 
-### Go
+{{< tabs items="Go,Javascript" >}}
 
+{{< tab >}}
 ```golang
 package main
 
@@ -253,9 +254,9 @@ func main() {
 	fmt.Printf("response: %v\n", response)
 }
 ```
+{{< /tab >}}
 
-### Javascript
-
+{{< tab >}}
 ```javascript
 import { Relay, finalizeEvent } from 'nostr-tools';
 
@@ -304,3 +305,6 @@ try {
   console.log('error:', err)
 }
 ```
+{{< /tab >}}
+
+{{< /tabs >}}
