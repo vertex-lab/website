@@ -1,13 +1,13 @@
 ---
 title: Recommend Follows
-weight: 20
+weight: 3
 ---
 
 
 This service returns a list of recommended pubkeys (the ones with highest rank excluding source and its follows) sorted by an algorithm.
 
-Example use-cases:
- - Offering users recommendations on accounts they may want to follow
+Example use cases:
+- Offering users recommendations on accounts they may want to follow
 
 ## Kinds
 

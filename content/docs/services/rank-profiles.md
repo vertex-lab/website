@@ -1,11 +1,11 @@
 ---
 title: Rank Profiles
-weight: 30
+weight: 4
 ---
 
 This service sorts a provided list of pubkeys using the specified algorithm.
 
-Example use-cases:
+Example use cases:
  - Batched ranking of pubkeys
  - Sorting comments under a note
  - Sorting zaps in a zap list

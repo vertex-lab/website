@@ -1,11 +1,11 @@
 ---
 title: Verify Reputation
-weight: 10
+weight: 2
 ---
 
 This service returns reputation information about a pubkey, including a list of pubkeys who follow it sorted by an algorithm. [Try it live on npub.world](https://npub.world/npub1kpt95rv4q3mcz8e4lamwtxq7men6jprf49l7asfac9lnv2gda0lqdknhmz).
 
-Example use-cases:
+Example use cases:
 
   - Helping users assess the reputation of a npub
   - Showing relevant followers of that npub

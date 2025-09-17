@@ -5,7 +5,7 @@ weight: 40
 
 This service provides a list of pubkeys matching the provided search term. [Try it live on npub.world](https://npub.world/).
 
-Example use-cases:
+Example use cases:
 
  - Searching profiles
  - Auto-completion when tagging someone
