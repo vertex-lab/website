@@ -48,7 +48,7 @@ The beauty of this approach is its simplicity: it's easy to implement and custom
 In our design, the **refill rate depends on the pubkey's rank**.
 
 Now, how do we compute these ranks?  
-That's where specialized Data Vending Machines (DVMs) come in. Instead of burdening relays with heavy computation, we outsource it to efficient service providers. For example, batched DVMs like [SortProfiles](/docs/services/sort-profiles) can return ranks for up to 1,000 pubkeys in a single request for less than a penny. The relay simply queues up all the unknown pubkeys that try to write to it, and when the queue fills, it fetches their ranks.
+That's where specialized Data Vending Machines (DVMs) come in. Instead of burdening relays with heavy computation, we outsource it to efficient service providers. For example, batched DVMs like [RankProfiles](/docs/services/rank-profiles) can return ranks for up to 1,000 pubkeys in a single request for less than a penny. The relay simply queues up all the unknown pubkeys that try to write to it, and when the queue fills, it fetches their ranks.
 
 There's another problem: An attacker could generate endless new pubkeys, flooding the queue and wasting backend resources.
 
