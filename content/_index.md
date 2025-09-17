@@ -5,7 +5,7 @@ layout: hextra-home
 
 {{< hextra/hero-container
   image="images/logo.svg"
-  imageClass="hx-block hx-overflow-hidden custom-image"
+  imageClass="hx:block hx:overflow-hidden custom-image"
   imageWidth="200" imageHeight="200"
   imageTitle="Vertex Logo"
 >}}
@@ -14,7 +14,7 @@ layout: hextra-home
   Web of Trust <br> as a Service.
 {{< /hextra/hero-headline >}}
 
-<div class="hx-mt-6 hx-mb-6">
+<div class="hx:mt-6 hx:mb-6">
 {{< hextra/hero-subtitle >}}
   Eliminate spam and deliver personalized experiences with high relevance and minimal noise. Powered by the Nostr Web of Trust.
 {{< /hextra/hero-subtitle >}}
@@ -40,7 +40,7 @@ layout: hextra-home
 
 {{< /hextra/feature-grid >}}
 
-<div class="hx-mt-5"></div>
+<div class="hx:mt-5"></div>
 
 {{< hextra/feature-grid >}}
 
@@ -59,4 +59,4 @@ layout: hextra-home
 
 {{< /hextra/feature-grid >}}
 
-<div class="hx-mt-12"></div>
+<div class="hx:mt-12"></div>

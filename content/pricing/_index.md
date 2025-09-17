@@ -2,13 +2,13 @@
 toc: false
 ---
 
-<div class="hx-mt-6">
+<div class="hx:mt-6">
 {{< hextra/hero-headline >}}
   Developer Friendly Pricing
 {{< /hextra/hero-headline >}}
 </div>
 
-<div class="hx-mt-1 hx-mb-6">
+<div class="hx:mt-1 hx:mb-6">
   {{< hextra/hero-subtitle >}}
   No hidden costs, pay exactly what you consume.
   {{< /hextra/hero-subtitle >}}
@@ -31,7 +31,7 @@ You get the response and use it in your app
   Tiers
 {{< /hextra/hero-headline >}}
 
-<div class="hx-mt-1 hx-mb-6">
+<div class="hx:mt-1 hx:mb-6">
 {{< hextra/hero-subtitle >}}
 Same services across all tiers. Just more value as you top up.
 {{< /hextra/hero-subtitle >}}
@@ -65,7 +65,7 @@ Same services across all tiers. Just more value as you top up.
     </div>
 </div>
 
-<div class="hx-mt-8 hx-mb-6">
+<div class="hx:mt-8 hx:mb-6">
 {{< hextra/hero-subtitle >}}
 Need more? <u>[Contact us for Enterprise pricing](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-)</u>
 {{< /hextra/hero-subtitle >}}

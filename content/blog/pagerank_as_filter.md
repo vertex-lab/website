@@ -94,7 +94,7 @@ $$T = 0.33 \cdot \frac{1}{N}$$
 
 This alone filtered out the vast majority of spam from our database. For context, while [nostr.band](https://nostr.band) tracks over 40 million pubkeys, our filtered set contains only 315,000—a +100x reduction.
 
-<div class="hx-mt-5"></div>
+<div class="hx:mt-5"></div>
 
 ---
 

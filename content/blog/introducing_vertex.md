@@ -38,7 +38,7 @@ We currently support four DVMs, but we plan to increase our offering substantial
 
 To learn more, watch this 4 minute walk-through video.
 
-<div class="hx-mt-5"></div>
+<div class="hx:mt-5"></div>
 <video width="100%" controls>
     <source src="https://cdn.satellite.earth/6efabff7da55ce848074351b2d640ca3bde4515060d9aba002461a4a4ddad8d8.mp4" type="video/mp4">
     <source src="https://cdn.satellite.earth/792705217ecb755435b708cc23615259f8d7923974e14ed9a586d3fa2c16c804.webm" type="video/webm">

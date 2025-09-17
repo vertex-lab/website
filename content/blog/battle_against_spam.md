@@ -30,7 +30,7 @@ We [transparently](https://github.com/vertex-lab) analyze Nostr's open social gr
 You define what reputation means for your use case. Want to rank by global influence? Local or personalized? You're in control. We give you actionable and transparent analytics so you can build sharper filters, better user experiences, and more resilient systems.
 That's how we fight spam, without sacrificing decentralization.
 
-<div class="hx-mt-5"></div>
+<div class="hx:mt-5"></div>
 
 ---
 

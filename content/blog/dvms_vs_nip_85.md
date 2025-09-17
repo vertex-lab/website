@@ -50,7 +50,7 @@ This operation is computationally expensive, especially on mobile devices. It is
 
 **More generally, trusted assertions are very hard to use when one doesn't know the pubkeys of the people he's looking for.** **This goes fundamentally against our approach of Web of Trust, as a powerful mechanism for discovery.**
 
-<div class="hx-mt-5"></div>
+<div class="hx:mt-5"></div>
 
 ---
 
