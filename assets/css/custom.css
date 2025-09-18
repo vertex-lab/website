@@ -17,6 +17,11 @@ body {
   margin-top: 20px;
 }
 
+.hextra-banner button {
+  display: none;
+}
+
+
 .hero-button {
   display: flex;
   justify-content: center;

@@ -40,6 +40,12 @@ menu:
         icon: github
 
 params:
+  banner:
+    key: "announcement"
+    message: ✨ Vertex is now free! Learn more [here](/blog/vertex_is_free/)
+
+  externalLinkDecoration: true
+
   navbar:
     displayTitle: false
     displayLogo: true
