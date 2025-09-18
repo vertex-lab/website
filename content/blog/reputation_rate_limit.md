@@ -1,7 +1,7 @@
 ---
 title: "Beyond IPs—Reputation based rate limiting"
 date: 2025-04-28
-summary: "Nostr is a simple and powerful protocol for decentralized communication. Thanks to its minimalist design — just public keys, signed messages, and open relays — it's easy to use, easy to build on, and hard to censor. But with that openness comes a big challenge: it's also easy for bad actors to spam the network..."
+summary: "Thanks to its minimalist design — just public keys, signed messages, and open relays — Nostr is easy to use, easy to build on, and hard to censor. But with that openness comes a big challenge..."
 math: true
 ---
 
