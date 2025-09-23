@@ -3,7 +3,7 @@ title: Nostr Relay
 weight: 1
 ---
 
-The Vertex Relay is the core endpoint that powers Vertex services. It provides free, reliable access to high-quality profile events aggregated from a wide range of popular relays.
+The Vertex Relay is the core endpoint that powers Vertex services. It provides free, reliable access to high-quality profile events and statistics (NIP-45) aggregated from a comprehensive range of relays.
 
 Example use cases:
 - Querying profile information without the risk of spam or low-quality data.
