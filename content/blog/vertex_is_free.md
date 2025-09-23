@@ -6,11 +6,12 @@ summary: "Vertex is now easier than ever for developers to integrate. Starting t
 
 Since our February launch, Vertex has evolved its services and gained the confidence of projects that trust it for spam protection, such as:
 
-- [#asknostr](https://asknostr.site/)- the Q&A community on top of Nostr.
-- [Satlantis](https://www.satlantis.io/) - the travel and community social network.
-- [npub.world](https://npub.world/) - the nostr profile search engine.
+- [#asknostr](https://asknostr.site/)- a Q&A community on top of Nostr.
+- [Jellyfish](https://jellyfish.land/) - a modern and spam-free Nostr relay.
+- [Satlantis](https://www.satlantis.io/) - a travel and community social network.
+- [npub.world](https://npub.world/) - the Nostr profile search engine.
 - [Zapstore](https://zapstore.dev/) - the app store powered by your social graph.
-- [Sovran](https://sovran.money/) - the Bitcoin and ecash wallet with built-in nostr search.
+- [Sovran](https://sovran.money/) - a Bitcoin and ecash wallet with built-in nostr search.
 
 However, after speaking with many Nostr developers, we discovered an unexpected hurdle: Vertex’s current authorization model — signing each request with a Nostr key — is difficult for many apps to implement.
 
