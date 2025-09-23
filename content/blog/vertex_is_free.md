@@ -4,21 +4,21 @@ date: 2025-09-17
 summary: "Vertex is now easier than ever for developers to integrate. Starting today, all reputable pubkeys receive 100 free daily credits, removing the biggest barrier to building spam-proof apps without..."
 ---
 
-Since our launch in February, Vertex has improved its services and earned the trust of projects that rely on us to make their apps spam-proof. Some of them include:
+Since our February launch, Vertex has evolved its services and gained the confidence of projects that trust it for spam protection, such as:
 
-- [#asknostr](https://asknostr.site/)- a Q&A community on top of Nostr.
+- [#asknostr](https://asknostr.site/)- the Q&A community on top of Nostr.
 - [Satlantis](https://www.satlantis.io/) - the travel and community social network.
 - [npub.world](https://npub.world/) - the nostr profile search engine.
 - [Zapstore](https://zapstore.dev/) - the app store powered by your social graph.
 - [Sovran](https://sovran.money/) - the Bitcoin and ecash wallet with built-in nostr search.
 
-However, after speaking with many Nostr developers, we discovered an unexpected hurdle: the main barrier to adopting Vertex wasn’t cost, it was *authorization*.
+However, after speaking with many Nostr developers, we discovered an unexpected hurdle: Vertex’s current authorization model — signing each request with a Nostr key — is difficult for many apps to implement.
 
 ## The Challenge
 
-To fulfill a request with Vertex, you need to **sign it with a nostr key** that has sufficient credits, similar to how traditional APIs require an API key to authenticate each request and tie it to an account or quota.
+To use Vertex, each request must be **signed with a Nostr key** that has enough credits. This works much like traditional APIs, where an API key authenticates each request and links it to an account or quota.
 
-But for most Nostr clients this is a major hurdle, because they are entirely client-side applications:
+But for Nostr clients this is a major hurdle, as they are mostly client-side applications:
 
 - They **don’t have, and don’t want, a backend** that could approve or sign requests on behalf of the app.
 - They also **can’t safely embed a key** inside the app itself, as any secret can be extracted with enough effort.
@@ -41,7 +41,8 @@ We’re still very bullish on ecash in the long term and plan to integrate it in
 
 ## Our Solution: Make It Free
 
-Sometimes the simplest, “left-curve” solutions are the best ones. Starting today, all pubkeys* **get 100 free credits per day**.
+Sometimes the simplest, “left-curve” solutions are the best ones.  
+Starting today, all pubkeys* **get 100 free credits per day**.
 
 Here is what this means:
 
@@ -61,48 +62,54 @@ What are you waiting for? Check out our [docs](/docs/services) and **get started
 
 {{% details title="All pubkeys?" %}}
 
-All reputable pubkeys receive 100 free credits per day. Currently, this includes over 200k pubkeys and is growing, essentially covering all active Nostr users. This simple restriction helps prevent spam.
+All reputable pubkeys receive 100 free credits per day. Currently, this includes over 100k pubkeys and is growing, essentially covering all active Nostr users. This simple restriction helps prevent spam.
 
 {{% /details %}}
 
-{{% details title="How much is 100 credits?" closed="true"%}}
+{{% details title="What about new users?" closed="true" %}}
+
+As new users have not yet built a reputation, they are indistinguishable from spammers and will not be offered free services. If you have any suggestions on how to solve this issue, please let us know.
+
+{{% /details %}}
+
+{{% details title="How much is 100 credits?" closed="true" %}}
 
 It depends how you use them, but normally it's enough for multiple hours of searches, social activity, and spam filtering.
 
 {{% /details %}}
 
-{{% details title="How do you plan to monetize?" closed="true"%}}
-
-We plan to earn revenue from clients who need more features or higher limits, and from relays or other apps running backends. For now, though, Nostr is still too small to focus on profits, it needs far more users. Adoption has slowed, likely due to a poor user experience. Offering this to the community is our way of helping the ecosystem grow.
-
-{{% /details %}}
-
-{{% details title="Do unused credits roll over?" closed="true"%}}
+{{% details title="Do unused credits roll over?" closed="true" %}}
 
 No, credits reset daily. This keeps the system fair and prevents stockpiling for spam.
 
 {{% /details %}}
 
-{{% details title="How can I get more credits?" closed="true"%}}
+{{% details title="What happens if I run out?" closed="true" %}}
+
+Your requests will return an error event `kind:7000` until your daily credits refresh, or until you top up.
+
+{{% /details %}}
+
+{{% details title="Can I get more credits?" closed="true" %}}
 
 Yes. Higher limits and premium features are available for apps, relays, or heavy users.  
 Check out our [pricing](/pricing) for more details.
 
 {{% /details %}}
 
-{{% details title="What happens if I run out of credits?" closed="true"%}}
+{{% details title="How do you plan to monetize?" closed="true" %}}
 
-Your requests will return an error event `kind:7000` until your daily credits refresh, or until you top up.
+We plan to earn revenue from clients who need more features or higher limits, and from relays or other apps running backends. For now, though, Nostr is still too small to focus on profits, it needs far more users. Adoption has slowed, likely due to a poor user experience. Offering this to the community is our way of helping the ecosystem grow.
 
 {{% /details %}}
 
-{{% details title="Will Vertex be free forever?" closed="true"%}}
+{{% details title="Will Vertex be free forever?" closed="true" %}}
 
 Forever is a strong word, but yes, that's the plan.
 
 {{% /details %}}
 
-{{% details title="Wen ecash?" closed="true"%}}
+{{% details title="Wen ecash?" closed="true" %}}
 
 Soon™.
 

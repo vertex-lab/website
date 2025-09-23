@@ -10,13 +10,22 @@ Vertex is Web of Trust as a Service built on top of the nostr social graph. It p
 
 {{% /details %}}
 
-{{% details title="How can I integrate Vertex into my app?" closed="true"%}}
+{{% details title="How can I use Vertex?" closed="true"%}}
 
 We provide DVMs that make doing social graph analysis as simple as publishing an event. Check out [our services](../services/) and hit our relay at:
 
 `wss://relay.vertexlab.io`
 
  If you need help, don't hesitate to [ask Pip](https://signal.me/#eu/O6mL1ozXhujHr-seJPkZzA4EKprDgr64AqoAOhu4U5TtKlRwutNJvbsCqXJvZb1-).
+
+{{% /details %}}
+
+{{% details title="Is Vertex free?" closed="true"%}}
+ 
+Yes! Vertex offers a generous free tier, but there is more.
+All reputable pubkeys receive 100 free daily credits to use Vertex’s features at no cost. If you exceed the free credits, usage is billed based on the credits your requests consume.
+
+To learn more, check out this [post](/blog/vertex_is_free/) and our [pricing page](/pricing).
 
 {{% /details %}}
 
@@ -56,7 +65,7 @@ On nostr there is no global state. However, our crawler gathers profile data fro
 
 {{% details title="Do I always need to connect to get a result?" closed="true"%}}
 
-DVMs return signed nostr events that can be cached by clients, shared between them, kept locally for offline usage and so on.
+DVMs return signed nostr events that can be cached by clients, shared between them, or kept locally for offline usage.
 
 {{% /details %}}
 
@@ -72,7 +81,7 @@ We are committed to open standards, and that's why our services are structured a
 
 All Vertex responses are cryptographically signed. However, there is no trustless way to know that a response is legitimate except by running our code on the same data.
 
-We are currently building client-side validation schemes so your users will be able to verify independently.
+We are currently exploring client-side validation schemes so your users will be able to verify independently.
 
 {{% /details %}}
 
